@@ -62,7 +62,7 @@ try:
 except KeyError:
     SOME_SECRET = "Token not available!"
 password = os.environ.get("PASSWORD")
-username = os.environ.get("USERNAME")
+username = os.environ.get("USERNAME2")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
 # username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
