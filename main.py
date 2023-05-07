@@ -57,6 +57,10 @@ load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # username = os.getenv("USERNAME")
 
 username = "aviv.gelfand@mail.huji.ac.il"
+try:
+    SOME_SECRET = os.environ["PASSWORD"]
+except KeyError:
+    SOME_SECRET = "Token not available!"
 password = os.environ.get("PASSWORD")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
