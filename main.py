@@ -50,19 +50,19 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from dotenv import dotenv_values
 
-# config = dotenv_values(".env")
+config = dotenv_values(".env")
 # from methods import get_date_format, get_task_from_date
 # load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # get username from the .env file
 # username = os.getenv("USERNAME")
 
-username = "aviv.gelfand@mail.huji.ac.il"
+# username = "aviv.gelfand@mail.huji.ac.il"
 try:
     SOME_SECRET = os.environ["PASSWORD"]
 except KeyError:
     SOME_SECRET = "Token not available!"
 password = os.environ.get("PASSWORD")
-username = os.environ.get("PASSWORD")
+username = os.environ.get("USERNAME")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
 # username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
