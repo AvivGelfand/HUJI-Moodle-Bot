@@ -52,7 +52,7 @@ from dotenv import dotenv_values
 
 # config = dotenv_values(".env")
 # from methods import get_date_format, get_task_from_date
-load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
+# load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # get username from the .env file
 # username = os.getenv("USERNAME")
 
@@ -62,6 +62,7 @@ try:
 except KeyError:
     SOME_SECRET = "Token not available!"
 password = os.environ.get("PASSWORD")
+username = os.environ.get("PASSWORD")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
 # username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
