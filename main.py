@@ -17,15 +17,15 @@ logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
 try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
+    USERNAME2 = os.environ["USERNAME2"]
 except KeyError:
-    SOME_SECRET = "Token not available!"
+    USERNAME2 = "Token not available!"
     # logger.info("Token not available!")
     # raise
 
 
 if __name__ == "__main__":
-    logger.info(f"Token value: {SOME_SECRET}")
+    logger.info(f"Token value: {USERNAME2}")
 
     r = requests.get(
         "https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE"
@@ -50,7 +50,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from dotenv import dotenv_values
 
-config = dotenv_values(".env")
+# config = dotenv_values(".env")
 # from methods import get_date_format, get_task_from_date
 # load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # get username from the .env file
