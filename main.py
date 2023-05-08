@@ -53,7 +53,7 @@ class GetTask:
         # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
         # url = "https://moodle2.cs.huji.ac.il/nu22/"
         url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-        
+
         driver = cls.open_url_link(url)
         new_scan_result = cls.scrape_tasks(driver)
         driver.quit()
@@ -65,13 +65,12 @@ class GetTask:
         options.add_argument("--headless")
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(
-            ChromeDriverManager().install(),
-              options=options
-        )
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.get(url)
         wait = WebDriverWait(driver, 10)
-        wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))).click()
+        wait.until(
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))
+        ).click()
         # wait until the page loads
         time.sleep(3)
         driver.find_element(By.ID, "pills-email-tab").click()
@@ -214,7 +213,7 @@ if __name__ == "__main__":
             # res[che]
             bot.send_message(
                 536568724,
-                f"Master, there is a new moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
+                f"Master Bruce, there is a new moodle for the Course: {task['course']}\n \n Assignment named: '{task['title']}' was just uploaded.\n \n The deadline set for {task['date']}. \nLink: {task['link']} \n \n Best of luck!",
             )
     else:
         bot.send_message(536568724, "No new moodle updates")
