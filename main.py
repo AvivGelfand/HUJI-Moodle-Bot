@@ -195,12 +195,11 @@ if __name__ == "__main__":
     # print(new_posts)
     # GetTask.output_to_csv(res)
 
+    # TELEGRAM BOT
     BOT_TOKEN = os.environ["BOT_TOKEN"]
     bot = telebot.TeleBot(BOT_TOKEN)
 
-    # BOT_TOKEN = os.environ["BOT_TOKEN"]
-
-    # print a message to the user about the a latest update with the link to the submission page and the due date of the task
+    # send message to the user about the a latest update with the link to the submission page and the due date of the task
     if len(new_posts) != 0:
         for task in new_posts:
             # res[che]
@@ -211,17 +210,11 @@ if __name__ == "__main__":
         logger.info("Finished running, new updates found and sent to user")
     else:
         logger.info("Finished running, no updates found")
-# bot.send_message(536568724, "No new moodle updates")
-# message_text = f"New moodle update {check}"
+        # bot.send_message(536568724, "No new moodle updates")
 
-
-# bot.send_message(536568724, "New moodle update: " + message_text)
 # @bot.message_handler(commands=['start', 'hello'])
-# def send_welcome(message):
 # bot.reply_to(message, "Howdy, how are you doing?")
 
 # @bot.message_handler(func=lambda msg: True)
 # def echo_all(message):
 # bot.reply_to(message, message.text)
-
-# bot.infinity_polling()
