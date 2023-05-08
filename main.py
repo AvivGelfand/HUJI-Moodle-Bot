@@ -41,35 +41,26 @@ from selenium.webdriver.support.ui import WebDriverWait
 from dotenv import dotenv_values
 import telebot
 
-# config = dotenv_values(".env")
-# from methods import get_date_format, get_task_from_date
 # load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # get username from the .env file
-# username = os.getenv("USERNAME")
-
-# username = "aviv.gelfand@mail.huji.ac.il"
 username = os.environ.get("USERNAME")
-
 password = os.environ.get("PASSWORD")
-
-# username = os.environ.get("USERNAME2")
-# print('env_path  \n',os.getenv("PATH"),'\n\n','done')
-# print(username, password)
-# print(username, password)
 
 
 class GetTask:
     @classmethod
     def get_moodle_tasks(cls) -> list:
-        # load_dotenv()
         # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
-        url = "https://moodle2.cs.huji.ac.il/nu22/"
+        # url = "https://moodle2.cs.huji.ac.il/nu22/"
+        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
+        
         driver = cls.open_url_link(url)
         new_scan_result = cls.scrape_tasks(driver)
         driver.quit()
         return new_scan_result
 
     def open_url_link(url: str):
+        url = url2
         # def open_url_link(url: str):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
@@ -81,9 +72,7 @@ class GetTask:
         )
         driver.get(url)
         wait = WebDriverWait(driver, 10)
-        wait.until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))
-        ).click()
+        wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))).click()
         # wait until the page loads
         time.sleep(3)
         driver.find_element(By.ID, "pills-email-tab").click()
