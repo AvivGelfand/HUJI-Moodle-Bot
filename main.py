@@ -215,9 +215,11 @@ if __name__ == "__main__":
                 536568724,
                 f"Master Bruce, there is a new moodle for the Course: {task['course']}\n \n Assignment named: '{task['title']}' was just uploaded.\n \n The deadline set for {task['date']}. \nLink: {task['link']} \n \n Best of luck!",
             )
+        logger.info("Finished running, new updates found and sent to user")
     else:
-        bot.send_message(536568724, "No new moodle updates")
-        # message_text = f"New moodle update {check}"
+        logger.info("Finished running, no updates found")
+    # bot.send_message(536568724, "No new moodle updates")
+    # message_text = f"New moodle update {check}"
 
 
 # bot.send_message(536568724, "New moodle update: " + message_text)
