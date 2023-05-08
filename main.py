@@ -176,7 +176,7 @@ if __name__ == "__main__":
             previous_tasks = json.load(f)
     except FileNotFoundError:
         previous_tasks = []
-    logger.info(f"Token value: {USERNAME2}")
+    # logger.info(f"Token value: {USERNAME2}")
 
     r = requests.get(
         "https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE"
