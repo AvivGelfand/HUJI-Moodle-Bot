@@ -29,7 +29,6 @@ import datetime
 import json
 import os
 import time
-
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from selenium import webdriver
@@ -37,7 +36,6 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import selenium.webdriver.support.expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
 from dotenv import dotenv_values
 import telebot
 
