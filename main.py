@@ -60,7 +60,6 @@ class GetTask:
         return new_scan_result
 
     def open_url_link(url: str):
-        url = url2
         # def open_url_link(url: str):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
