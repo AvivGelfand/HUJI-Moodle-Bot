@@ -24,18 +24,6 @@ except KeyError:
     # raise
 
 
-if __name__ == "__main__":
-    logger.info(f"Token value: {USERNAME2}")
-
-    r = requests.get(
-        "https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE"
-    )
-    if r.status_code == 200:
-        data = r.json()
-        temperature = data["forecast"]["temp"]
-        logger.info(f"Weather in Berlin: {temperature}")
-
-
 import csv
 import datetime
 import json
@@ -49,6 +37,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 from dotenv import dotenv_values
+import telebot
 
 # config = dotenv_values(".env")
 # from methods import get_date_format, get_task_from_date
@@ -85,7 +74,7 @@ class GetTask:
         options.add_argument("--headless")
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(ChromeDriverManager().install())
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.get(url)
         driver.find_element(By.ID, "login_username").send_keys(str(username))
         driver.find_element(By.ID, "login_password").send_keys(str(password))
@@ -208,36 +197,42 @@ if __name__ == "__main__":
             previous_tasks = json.load(f)
     except FileNotFoundError:
         previous_tasks = []
+    logger.info(f"Token value: {USERNAME2}")
+
+    r = requests.get(
+        "https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE"
+    )
+    if r.status_code == 200:
+        data = r.json()
+        temperature = data["forecast"]["temp"]
+        logger.info(f"Weather in Berlin: {temperature}")
 
     # If the file doesn't exist, assume there is no previous data
     res = GetTask.get_moodle_tasks()
     # check = GetTask.compare_tasks(res, previous_tasks)
     new_posts = GetTask.get_new_dictionaries(previous_tasks, res)
     # print("done", check)
-# GetTask.output_to_csv(res)
+    # GetTask.output_to_csv(res)
 
-# turn all the tasks into a dataframe
-# import pandas as pd
-# df = pd.DataFrame(res)
-# df
+    # turn all the tasks into a dataframe
+    # import pandas as pd
+    # df = pd.DataFrame(res)
+    # df
+    BOT_TOKEN = BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
 
-import telebot
+    bot = telebot.TeleBot(BOT_TOKEN)
 
-BOT_TOKEN = BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
-
-bot = telebot.TeleBot(BOT_TOKEN)
-
-# print a message to the user about the a latest update with the link to the submission page and the due date of the task
-if len(new_posts) != 0:
-    for task in new_posts:
-        # res[che]
-        bot.send_message(
-            536568724,
-            f"New moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
-        )
-# else:
-# bot.send_message(536568724, "No new moodle updates")
-# message_text = f"New moodle update {check}"
+    # print a message to the user about the a latest update with the link to the submission page and the due date of the task
+    if len(new_posts) != 0:
+        for task in new_posts:
+            # res[che]
+            bot.send_message(
+                536568724,
+                f"New moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
+            )
+    else:
+        bot.send_message(536568724, "No new moodle updates")
+        # message_text = f"New moodle update {check}"
 
 
 # bot.send_message(536568724, "New moodle update: " + message_text)
