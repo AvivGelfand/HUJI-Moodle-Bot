@@ -4,7 +4,7 @@ on:
   schedule:
     # - cron: '0 0 * * 1' # At 00:00 on Monday
     # run every 2 minutes
-    - cron: "* * * * *" # run every 5 minutes
+    - cron: "*/2 * * * *" # run every 5 minutes
 
 jobs:
   build:
