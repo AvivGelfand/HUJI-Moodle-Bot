@@ -168,26 +168,6 @@ class GetTask:
             writer = csv.DictWriter(f, fieldnames=task[0].keys())
             writer.writeheader()
             writer.writerows(task)
-        # @classmethod
-        # def task_update(cls):
-        #     GetTask.get_moodle_tasks()
-        #     today = get_date_format("today")
-        #     todays_tasks = get_task_from_date(today)
-        #     near_tasks = []
-        #     if len(todays_tasks) != 0:
-        #         now = datetime.datetime.now()
-        #         for todays_task in todays_tasks:
-        #             time_limit = datetime.datetime(
-        #                 year=now.year,
-        #                 month=now.month,
-        #                 day=now.day,
-        #                 hour=int(todays_task["time"].split(":")[0]),
-        #                 minute=int(todays_task["time"].split(":")[1]),
-        #             )
-        #             if (time_limit - now).seconds < 7200:
-        #                 near_tasks.append(todays_task)
-        #     with open("./near_tasks.json", "w") as f:
-        #         json.dump(near_tasks, f, ensure_ascii=False)
 
 
 if __name__ == "__main__":
@@ -218,10 +198,14 @@ if __name__ == "__main__":
     # import pandas as pd
     # df = pd.DataFrame(res)
     # df
-    BOT_TOKEN = os.environ["BOT_TOKEN"]
-    # BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
+    try:
+        BOT_TOKEN = os.environ["BOT_TOKEN"]
+        bot = telebot.TeleBot(BOT_TOKEN)
+    except:
+        BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
+        bot = telebot.TeleBot(BOT_TOKEN)
 
-    bot = telebot.TeleBot(BOT_TOKEN)
+        # BOT_TOKEN = os.environ["BOT_TOKEN"]
 
     # print a message to the user about the a latest update with the link to the submission page and the due date of the task
     if len(new_posts) != 0:
