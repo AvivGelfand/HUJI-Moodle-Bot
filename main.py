@@ -48,7 +48,7 @@ import telebot
 # username = os.getenv("USERNAME")
 
 # username = "aviv.gelfand@mail.huji.ac.il"
-password = os.environ.get("USERNAME")
+username = os.environ.get("USERNAME")
 
 password = os.environ.get("PASSWORD")
 
@@ -215,14 +215,10 @@ if __name__ == "__main__":
     # import pandas as pd
     # df = pd.DataFrame(res)
     # df
-    try:
-        BOT_TOKEN = os.environ["BOT_TOKEN"]
-        bot = telebot.TeleBot(BOT_TOKEN)
-    except:
-        BOT_TOKEN = "6190189458:AAHm3vgJfjMdmPyJE6_weWnBeW_gkb2d_AY"
-        bot = telebot.TeleBot(BOT_TOKEN)
+    BOT_TOKEN = os.environ["BOT_TOKEN"]
+    bot = telebot.TeleBot(BOT_TOKEN)
 
-        # BOT_TOKEN = os.environ["BOT_TOKEN"]
+    # BOT_TOKEN = os.environ["BOT_TOKEN"]
 
     # print a message to the user about the a latest update with the link to the submission page and the due date of the task
     if len(new_posts) != 0:
