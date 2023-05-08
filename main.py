@@ -198,6 +198,7 @@ if __name__ == "__main__":
     # df
 
     BOT_TOKEN = os.environ["BOT_TOKEN"]
+    bot = telebot.TeleBot(BOT_TOKEN)
 
         # BOT_TOKEN = os.environ["BOT_TOKEN"]
 
