@@ -140,7 +140,6 @@ class GetTask:
         # Save the information to a json file
         with open("tasks.json", "w") as f:
             json.dump(result, f)
-
         return result
 
     # create a function to compare new and old tasks
@@ -148,7 +147,6 @@ class GetTask:
         new_tasks = [task["title"] for task in new_tasks]
         old_tasks = [task["title"] for task in old_tasks]
         # get index of new tasks
-        # index=
         return [task for task in new_tasks if task not in old_tasks]
 
     def get_new_dictionaries(current_list, new_list):
@@ -190,18 +188,15 @@ if __name__ == "__main__":
         temperature = data["forecast"]["temp"]
         logger.info(f"Weather in Berlin: {temperature}")
 
-    # If the file doesn't exist, assume there is no previous data
     res = GetTask.get_moodle_tasks()
-    print(res)
-    # check = GetTask.compare_tasks(res, previous_tasks)
+    # print(res)
+
     new_posts = GetTask.get_new_dictionaries(previous_tasks, res)
     # print("done", check)
+
+    # print(new_posts)
     # GetTask.output_to_csv(res)
 
-    # turn all the tasks into a dataframe
-    # import pandas as pd
-    # df = pd.DataFrame(res)
-    # df
     BOT_TOKEN = os.environ["BOT_TOKEN"]
     bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -218,8 +213,8 @@ if __name__ == "__main__":
         logger.info("Finished running, new updates found and sent to user")
     else:
         logger.info("Finished running, no updates found")
-    # bot.send_message(536568724, "No new moodle updates")
-    # message_text = f"New moodle update {check}"
+# bot.send_message(536568724, "No new moodle updates")
+# message_text = f"New moodle update {check}"
 
 
 # bot.send_message(536568724, "New moodle update: " + message_text)
