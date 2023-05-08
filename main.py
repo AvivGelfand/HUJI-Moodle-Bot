@@ -218,7 +218,8 @@ if __name__ == "__main__":
     # import pandas as pd
     # df = pd.DataFrame(res)
     # df
-    BOT_TOKEN = BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
+    BOT_TOKEN = os.environ["BOT_TOKEN"]
+    # BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
 
     bot = telebot.TeleBot(BOT_TOKEN)
 
