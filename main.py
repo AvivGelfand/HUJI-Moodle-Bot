@@ -67,7 +67,7 @@ class GetTask:
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
             ChromeDriverManager().install(),
-            #   options=options
+              options=options
         )
         driver.get(url)
         wait = WebDriverWait(driver, 10)
