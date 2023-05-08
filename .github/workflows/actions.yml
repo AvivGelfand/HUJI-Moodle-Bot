@@ -38,6 +38,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           USERNAME2: ${{ secrets.USERNAME2 }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python main.py
 
       - name: commit files
