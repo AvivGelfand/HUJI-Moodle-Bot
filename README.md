@@ -1,6 +1,6 @@
-# Schedule a Python script with GitHub Actions
+# Alfred - a Scraping Telegram Bot
 
-**Watch the video tutorial:**
+**This is a python code:**
 
 [![Alt text](https://img.youtube.com/vi/PaGp7Vi5gfM/hqdefault.jpg)](https://youtu.be/PaGp7Vi5gfM)
 
