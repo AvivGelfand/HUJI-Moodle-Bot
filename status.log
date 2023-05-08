@@ -53,3 +53,5 @@
 2023-05-08 20:51:41,649 - __main__ - INFO - Finished running, no updates found
 2023-05-08 21:02:40,177 - __main__ - INFO - Weather in Berlin: 12.79
 2023-05-08 21:02:59,323 - __main__ - INFO - Finished running, new updates found and sent to user
+2023-05-08 21:17:14,776 - __main__ - INFO - Weather in Berlin: 12.79
+2023-05-08 21:17:38,095 - __main__ - INFO - Finished running, no updates found
