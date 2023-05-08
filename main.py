@@ -54,8 +54,6 @@ password = os.environ.get("PASSWORD")
 # username = os.environ.get("USERNAME2")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
-# username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
-# password = PASSWORD = "qmGn!2u9cftnLiN"
 # print(username, password)
 
 
