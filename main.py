@@ -35,6 +35,8 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+import selenium.webdriver.support.expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from dotenv import dotenv_values
 import telebot
@@ -45,17 +47,14 @@ import telebot
 # get username from the .env file
 # username = os.getenv("USERNAME")
 
-username = "aviv.gelfand@mail.huji.ac.il"
-try:
-    SOME_SECRET = os.environ["PASSWORD"]
-except KeyError:
-    SOME_SECRET = "Token not available!"
+# username = "aviv.gelfand@mail.huji.ac.il"
+password = os.environ.get("USERNAME")
+
 password = os.environ.get("PASSWORD")
+
 # username = os.environ.get("USERNAME2")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
-# username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
-# password = PASSWORD = "qmGn!2u9cftnLiN"
 # print(username, password)
 
 
@@ -63,22 +62,39 @@ class GetTask:
     @classmethod
     def get_moodle_tasks(cls) -> list:
         # load_dotenv()
-        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+        # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+        url = "https://moodle2.cs.huji.ac.il/nu22/"
         driver = cls.open_url_link(url)
         new_scan_result = cls.scrape_tasks(driver)
         driver.quit()
         return new_scan_result
 
     def open_url_link(url: str):
+        # def open_url_link(url: str):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver = webdriver.Chrome(
+            ChromeDriverManager().install(),
+            #   options=options
+        )
         driver.get(url)
-        driver.find_element(By.ID, "login_username").send_keys(str(username))
-        driver.find_element(By.ID, "login_password").send_keys(str(password))
-        driver.find_element(By.ID, "loginbtn").click()
+        wait = WebDriverWait(driver, 10)
+        wait.until(
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))
+        ).click()
+        # wait until the page loads
+        time.sleep(3)
+        driver.find_element(By.ID, "pills-email-tab").click()
+        time.sleep(2)
+        driver.find_element(By.ID, "username").send_keys(str(username))
+        driver.find_element(By.ID, "password").send_keys(str(password))
+        # press enter key
+        # driver.find_element(By.ID, "password").send_keys(u"\ue007")
+        wait.until(
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="f3"]/div[3]/button'))
+        ).click()
         time.sleep(5)
         driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
         return driver
@@ -189,6 +205,7 @@ if __name__ == "__main__":
 
     # If the file doesn't exist, assume there is no previous data
     res = GetTask.get_moodle_tasks()
+    print(res)
     # check = GetTask.compare_tasks(res, previous_tasks)
     new_posts = GetTask.get_new_dictionaries(previous_tasks, res)
     # print("done", check)
@@ -202,7 +219,7 @@ if __name__ == "__main__":
         BOT_TOKEN = os.environ["BOT_TOKEN"]
         bot = telebot.TeleBot(BOT_TOKEN)
     except:
-        BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
+        BOT_TOKEN = "6190189458:AAHm3vgJfjMdmPyJE6_weWnBeW_gkb2d_AY"
         bot = telebot.TeleBot(BOT_TOKEN)
 
         # BOT_TOKEN = os.environ["BOT_TOKEN"]
@@ -213,7 +230,7 @@ if __name__ == "__main__":
             # res[che]
             bot.send_message(
                 536568724,
-                f"New moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
+                f"Master, there is a new moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
             )
     else:
         bot.send_message(536568724, "No new moodle updates")
