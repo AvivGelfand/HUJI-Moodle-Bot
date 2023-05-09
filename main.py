@@ -29,6 +29,7 @@ logger_file_handler = logging.handlers.RotatingFileHandler(
     backupCount=1,
     encoding="utf8",
 )
+
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
@@ -192,7 +193,7 @@ class MoodleBot:
             for task in new_posts:
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce,\nFYI, new update for: \n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers",
+                    f"Master Bruce,\n\nFYI, new event: \n\n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers",
                 )
             logger.info("Finished running, new updates found and sent to user")
             print("\n\nNew moodle updates sent to user\n\n")
