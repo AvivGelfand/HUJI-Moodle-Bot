@@ -1,3 +1,18 @@
+import csv
+import datetime
+import json
+import os
+import time
+from bs4 import BeautifulSoup
+
+# from dotenv import load_dotenv
+# from dotenv import dotenv_values
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+import selenium.webdriver.support.expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+import telebot
 import logging
 import logging.handlers
 import os
@@ -24,26 +39,11 @@ except KeyError:
     # raise
 
 
-import csv
-import datetime
-import json
-import os
-import time
-from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
-import selenium.webdriver.support.expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from dotenv import dotenv_values
-import telebot
-
 # get username and password from the .env file
 username = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
-BOT_TOKEN = os.environ.get["BOT_TOKEN"]
-CHAT_ID = os.environ.get["CHAT_ID"]
+bot_token = os.environ.get["BOTTOKEN"]
+chat_id = os.environ.get["CHATID"]
 
 
 class MoodleBot:
@@ -142,8 +142,11 @@ class MoodleBot:
         new_tasks = [task["title"] for task in new_tasks]
         old_tasks = [task["title"] for task in old_tasks]
         # get index of new tasks
-        return [task for task in new_tasks if task not in old_tasks]
+        return [
+            task for task in new_tasks if task not in old_tasks
+        ]  # return the new tasks
 
+    # create a function to get the new dictionaries
     def get_new_dictionaries(current_list, new_list):
         # create a new list to store the new dictionaries
         result = []
@@ -157,6 +160,7 @@ class MoodleBot:
 
         return result
 
+    # create a function to output the new tasks to a csv file
     def output_to_csv(output_dict):
         with open("tasks.json", "r") as f:
             task = json.load(f)
@@ -167,14 +171,14 @@ class MoodleBot:
 
     # TELEGRAM BOT
     def send_telegram_if_new(new_posts):  #
-        bot = telebot.TeleBot(BOT_TOKEN)
+        bot = telebot.TeleBot(bot_token)
 
         # send message to the user about the a latest update with the link to the submission page and the due date of the task
         if len(new_posts) != 0:
             for task in new_posts:
                 # res[che]
                 bot.send_message(
-                    CHAT_ID,
+                    CHATID,
                     f"Master Bruce, a new moodle update for the course: {task['course']} was just uploaded / updated.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
                 )
             logger.info("Finished running, new updates found and sent to user")

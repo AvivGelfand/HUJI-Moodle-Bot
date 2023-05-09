@@ -2,8 +2,6 @@
 
 **This is a python code:**
 
-This example shows how to run a Python script as cron job with GitHub Actions. It calls an API once a week (could be any schedule you want), logs the response in `status.log`, and automatically pushes the changes to this repo.
-
 - Implement your script in `main.py`
 - Inspect and configure cron job in GitHub Action `.github/workflows/actions.yml`
 - It can install and use third party packages from `requirements.txt`
