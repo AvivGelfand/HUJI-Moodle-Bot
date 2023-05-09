@@ -94,6 +94,8 @@ class MoodleBot:
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
         # Get the events
         events = soup.find_all("div", class_="event")
+        logger.info(f"compare_tasks activated")
+
         # Loop through all the events and extract the necessary information
         result = []
         for event in events:
@@ -153,8 +155,10 @@ class MoodleBot:
 
     # create a function to compare new and old tasks
     def compare_tasks(new_tasks, old_tasks):
+        logger.info("compare_tasks activated")
         new_tasks = [task["title"] for task in new_tasks]
         old_tasks = [task["title"] for task in old_tasks]
+
         # get index of new tasks
         return [
             task for task in new_tasks if task not in old_tasks
@@ -163,6 +167,8 @@ class MoodleBot:
     # create a function to get the new dictionaries
     def get_new_dictionaries(previous_list, new_list):
         # create a new list to store the new dictionaries
+        logger.info("get_new_dictionaries activated")
+
         new_tasks = []
 
         # iterate through the new_list
