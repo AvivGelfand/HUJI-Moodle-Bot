@@ -1,36 +1,75 @@
-# Alfred - a Scraping Telegram Bot
+# Alfred - a Personal Moodle Bot
 
 **This is a python code:**
 
 - Implement your script in `main.py`
+
+  A Python program that logs in to the and scrapes tasks from the calendar view of the site. The program logs in to the site using the credentials provided in the .env file and retrieves the titles, dates, descriptions, course names, and submission links of upcoming tasks. The scraped information is saved in a JSON file named `tasks.json`.
+
+  **Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.
+
+## Project Files
+
+- `.github/workflows/new_pass` - A workflow file for GitHub Actions
+- `.gitignore` - A file specifying intentionally untracked files that Git should ignore
+- `README.md` - This file!
+- `main.py` - The main Python script for the bot
+- `requirements.txt` - A list of Python dependencies for the project
+- `status.log` - A log file for the status of the bot
+- `tasks.json` - A JSON file containing a list of the scraped tasks
+- `testenv.py` - A Python script for testing the environment
+
+## Installation
+
+1. Clone the repository to your local machine
+2. Install the required packages using the following command:
+
+```
+pip install -r requirements.txt
+```
+
+### Requirements
+
+The following libraries are required to run the script:
+
+- **`beautifulsoup4==4.9.3`**
+- **`dotenv==0.18.0`**
+- **`requests==2.25.1`**
+- **`selenium==3.141.0`**
+- **`webdriver_manager==3.3.0`**
+  These can be installed using the **`pip install -r requirements.txt`** command.
+
+## Configuration
+
+Before running the script, create a `.env` file in the root directory of the project and add the following variables:
+
+```
+USERNAME==<Your Moodle username>
+PASSWORD==<Your Moodle password>
+BOTTOKEN==<Your Telegram bot token>
+CHATID==Your Telegram chat ID>
+```
+
+## Running the script
+
+To run the script, simply run **`python main.py`**.
+
+## Files
+
+- **`.github/workflows`** A folder containing the GitHub Actions configuration file for this project.
+- **`main.py`**: The Python script that logs into Moodle and scrapes the tasks.
+- **`requirements.txt`**: A file containing the required Python libraries.
+- **`status.log`**: A log file containing the script's status.
+- **`tasks.json`**: A JSON file containing the scraped tasks.
+- **`README.md`**: This file, containing information about the project.
+
+## Running the bot automatically in time intervals:
+
 - Inspect and configure cron job in GitHub Action `.github/workflows/actions.yml`
 - It can install and use third party packages from `requirements.txt`
 - Secret environment variables can be used. Set secrets in Settings/Secrets/Actions -> 'New repository secret'. Use the same secret name inside `actions.yml` and `main.py`
 
-This project contains a Python script that allows a user to scrape tasks from the Moodle site. The bot logs into a Moodle account, navigates to the calendar page, and scrapes all of the upcoming tasks listed on the page. The tasks are saved to a JSON file, and the bot can compare the newly scraped tasks with the old tasks.
+## Credits
 
-Requirements
-The following libraries are required to run the script:
+This project's structure is a [for of the python-github-action-template repository](https://github.com/patrickloeber/python-github-action-template). Special thanks to [patrickloeber](https://github.com/patrickloeber) for his hard work and for making his code available under an open source license. I learned a lot from his [youtube channel]() while working on this project.
 
-beautifulsoup4==4.9.3
-dotenv==0.18.0
-requests==2.25.1
-selenium==3.141.0
-webdriver_manager==3.3.0
-These can be installed using the pip install -r requirements.txt command.
-
-Configuration
-Before running the script, you need to set the following environment variables:
-
-USERNAME: Your Moodle username.
-PASSWORD: Your Moodle password.
-Running the script
-To run the script, simply run python main.py.
-
-Files
-.github/workflows: A folder containing the GitHub Actions configuration file for this project.
-main.py: The Python script that logs into Moodle and scrapes the tasks.
-requirements.txt: A file containing the required Python libraries.
-status.log: A log file containing the script's status.
-tasks.json: A JSON file containing the scraped tasks.
-README.md: This file, containing information about the project.

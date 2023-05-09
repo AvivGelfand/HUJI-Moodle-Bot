@@ -1,12 +1,9 @@
+# libraries
 import csv
-import datetime
 import json
 import os
 import time
 from bs4 import BeautifulSoup
-
-# from dotenv import load_dotenv
-# from dotenv import dotenv_values
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
@@ -17,7 +14,10 @@ import logging
 import logging.handlers
 import os
 
-import requests
+# import datetime
+# from dotenv import load_dotenv
+# from dotenv import dotenv_values
+# import requests
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -30,14 +30,6 @@ logger_file_handler = logging.handlers.RotatingFileHandler(
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
-
-try:
-    USERNAME2 = os.environ["USERNAME2"]
-except KeyError:
-    USERNAME2 = "Token not available!"
-    # logger.info("Token not available!")
-    # raise
-
 
 # get username and password from the .env file
 username = os.environ.get("USERNAME")
