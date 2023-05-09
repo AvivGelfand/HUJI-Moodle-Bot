@@ -33,9 +33,9 @@ jobs:
       - name: execute py script # run main.py
         env:
           USERNAME: ${{ secrets.USERNAME }}
-          USERNAME2: ${{ secrets.USERNAME2 }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          BOTTOKEN: ${{ secrets.BOTTOKEN }}
+          CHATID: ${{ secrets.CHATID }}
         run: python main.py
 
       - name: commit files
