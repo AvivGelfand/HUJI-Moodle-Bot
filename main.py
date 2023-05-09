@@ -45,7 +45,7 @@ username = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
 
 
-class GetTask:
+class MoodleBot:
     @classmethod
     def get_moodle_tasks(cls) -> list:
         # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
@@ -83,8 +83,6 @@ class GetTask:
         time.sleep(5)
         driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
         return driver
-
-    # GetTask.get_moodle_task()
 
     def scrape_tasks(driver):
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
@@ -177,16 +175,11 @@ if __name__ == "__main__":
             previous_tasks = json.load(f)
     except FileNotFoundError:
         previous_tasks = []
-    # logger.info(f"Token value: {USERNAME2}")
 
-    res = GetTask.get_moodle_tasks()
+    res = MoodleBot.get_moodle_tasks()
     # print(res)
 
-    new_posts = GetTask.get_new_dictionaries(previous_tasks, res)
-    # print("done", check)
-
-    # print(new_posts)
-    # GetTask.output_to_csv(res)
+    new_posts = MoodleBot.get_new_dictionaries(previous_tasks, res)
 
     # TELEGRAM BOT
     BOT_TOKEN = os.environ["BOT_TOKEN"]
