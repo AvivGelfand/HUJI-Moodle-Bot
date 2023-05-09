@@ -32,10 +32,18 @@ logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
 # get username and password from the .env file
-username = os.environ.get("USERNAME")
-password = os.environ.get("PASSWORD")
+# username = os.environ.get("USERNAME")
+# password = os.environ.get("PASSWORD")
+# bot_token = os.environ.get("BOTTOKEN")
+# chat_id = os.environ.get("CHATID")
+
+# from dotenv import load_dotenv
+# load_dotenv()
+
+username = os.environ.get("USER_NAME")
+password = os.environ.get("PASSWORD2")
 bot_token = os.environ.get("BOTTOKEN")
-chat_id = os.environ.get("CHATID")
+chat_id = os.environ.get("CHAT_ID")
 
 
 class MoodleBot:
@@ -97,9 +105,10 @@ class MoodleBot:
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
-            # print(data["title"])
+            print(data["title"])
 
             data["date"] = event.find_all("div", class_="col-11")[0].text
+
             if event.find("div", class_="description-content") != None:
                 data["description"] = event.find(
                     "div", class_="description-content"
@@ -113,20 +122,26 @@ class MoodleBot:
                 data["course"] = event.find_all("div", class_="col-11")[
                     course_index
                 ].text
-                # get link to the event submission page
-                data["link"] = event.find_all(
-                    "div", class_="card-footer text-right bg-transparent"
-                )[course_index].find("a")["href"]
                 # print(data["course"])
             except:
                 data["course"] = ""
-                data["link"] = ""
-            result.append(data)
             # print(data)
+            try:
+                # get link to the event submission page
+                data["link"] = event.find("div", class_="card-footer").find(
+                    "a", class_="card-link"
+                )["href"]
+            except:
+                data["link"] = ""
+                # print("no link found")
+
+            # append the data to the result list
+            result.append(data)
 
         # Save the information to a json file
         with open("tasks.json", "w") as f:
             json.dump(result, f)
+
         return result
 
     # create a function to compare new and old tasks
@@ -139,18 +154,18 @@ class MoodleBot:
         ]  # return the new tasks
 
     # create a function to get the new dictionaries
-    def get_new_dictionaries(current_list, new_list):
+    def get_new_dictionaries(previous_list, new_list):
         # create a new list to store the new dictionaries
-        result = []
+        new_tasks = []
 
         # iterate through the new_list
         for new_dict in new_list:
             # check if the dictionary is already present in the current_list
-            if new_dict not in current_list:
+            if new_dict not in previous_list:
                 # add the new dictionary to the result list
-                result.append(new_dict)
+                new_tasks.append(new_dict)
 
-        return result
+        return new_tasks
 
     # create a function to output the new tasks to a csv file
     def output_to_csv(output_dict):
@@ -168,14 +183,14 @@ class MoodleBot:
         # send message to the user about the a latest update with the link to the submission page and the due date of the task
         if len(new_posts) != 0:
             for task in new_posts:
-                # res[che]
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce, a new moodle update for the course: {task['course']} was just uploaded / updated.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
+                    f"Master Bruce,\nJust letting you know that there is a new moodle update for the course: \n**{task['course']}**.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
                 )
             logger.info("Finished running, new updates found and sent to user")
         else:
             logger.info("Finished running, no updates found")
+            # print("/n/n No new moodle updates")
             # bot.send_message(536568724, "No new moodle updates")
 
             # @bot.message_handler(commands=['start', 'hello'])
@@ -191,10 +206,17 @@ if __name__ == "__main__":
     try:
         with open("tasks.json", "r") as f:
             previous_tasks = json.load(f)
+            print("\n\nprevious tasks are not empty\n\n", previous_tasks)
     except FileNotFoundError:
         previous_tasks = []
+        print("previous tasks: ", previous_tasks)
 
     res = MoodleBot.get_moodle_tasks()
+    # print("res: ", res)
 
     new_posts = MoodleBot.get_new_dictionaries(previous_tasks, res)
+    # print("new posts: ", new_posts)
     MoodleBot.send_telegram_if_new(new_posts, bot_token)
+
+
+# print("done\n\n\n\n")
