@@ -31,7 +31,13 @@ logger_file_handler = logging.handlers.RotatingFileHandler(
 )
 
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-logger_file_handler.setFormatter(formatter)
+# Write to the log file
+logger_file_handler = logging.handlers.RotatingFileHandler(
+    log_file_path,
+    maxBytes=1024 * 1024,
+    backupCount=1,
+    encoding="utf8",
+)
 logger.addHandler(logger_file_handler)
 
 # get username and password from the .env file
@@ -58,10 +64,12 @@ class MoodleBot:
 
         driver = cls.open_url_link(url)
         new_scan_result = cls.scrape_tasks(driver)
+        time.sleep(2)
         driver.quit()
         return new_scan_result
 
     def open_url_link(url: str):
+        logger.info("open_url_link activated")
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
 
@@ -78,7 +86,7 @@ class MoodleBot:
             EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))
         ).click()
 
-        time.sleep(3)
+        time.sleep(2)
         driver.find_element(By.ID, "pills-email-tab").click()
         time.sleep(2)
         driver.find_element(By.ID, "username").send_keys(str(username))
@@ -88,13 +96,17 @@ class MoodleBot:
         ).click()
         time.sleep(5)
         driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
+        logger.info("open_url_link finished")
+
         return driver
 
     def scrape_tasks(driver):
+        logger.info("scrape_tasks activated")
+
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
         # Get the events
         events = soup.find_all("div", class_="event")
-        logger.info(f"compare_tasks activated")
+        logger.info(events)
 
         # Loop through all the events and extract the necessary information
         result = []
@@ -110,6 +122,7 @@ class MoodleBot:
                 "יש להגיש את ": "",
                 "של": "",
             }
+
             data["title"] = event["data-event-title"]
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
@@ -146,11 +159,22 @@ class MoodleBot:
 
             # append the data to the result list
             result.append(data)
+        logger.info("scrape_tasks finished, JSON file created")
+        logger.info(result)
 
         # Save the information to a json file
-        with open("tasks.json", "w") as f:
-            json.dump(result, f)
+        # with open("tasks.json", "w") as f:
+        #     json.dump(result, f)
 
+        # Get the current directory
+        current_directory = os.getcwd()
+
+        # Append the filenames to the directory path
+        json_file_path = os.path.join(current_directory, "tasks.json")
+
+        # Save the information to a json file
+        with open(json_file_path, "w") as f:
+            json.dump(result, f)
         return result
 
     # create a function to compare new and old tasks
@@ -218,9 +242,14 @@ class MoodleBot:
 if __name__ == "__main__":
     # with open("task.json", "w") as f:
     try:
-        with open("tasks.json", "r") as f:
+        # Get the current directory
+        current_directory = os.getcwd()
+        # Append the filenames to the directory path
+        json_file_path = os.path.join(current_directory, "tasks.json")
+        with open(json_file_path, "r") as f:
             previous_tasks = json.load(f)
-            # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
+        logger.info("found previous tasks")
+        # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
     except FileNotFoundError:
         logger.info("did not find previous tasks")
         previous_tasks = []
