@@ -162,7 +162,7 @@ class MoodleBot:
             writer.writerows(task)
 
     # TELEGRAM BOT
-    def send_telegram_if_new(new_posts):  #
+    def send_telegram_if_new(new_posts, bot_token):  #
         bot = telebot.TeleBot(bot_token)
 
         # send message to the user about the a latest update with the link to the submission page and the due date of the task
@@ -197,4 +197,4 @@ if __name__ == "__main__":
     res = MoodleBot.get_moodle_tasks()
 
     new_posts = MoodleBot.get_new_dictionaries(previous_tasks, res)
-    MoodleBot.send_telegram_if_new(new_posts)
+    MoodleBot.send_telegram_if_new(new_posts, bot_token)
