@@ -43,7 +43,7 @@ logger.addHandler(logger_file_handler)
 # load_dotenv()
 
 username = os.environ.get("USER_NAME")
-password = os.environ.get("PASSWORD2")
+password = os.environ.get("PASSWORD")
 bot_token = os.environ.get("BOTTOKEN")
 chat_id = os.environ.get("CHAT_ID")
 
@@ -66,7 +66,10 @@ class MoodleBot:
 
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+        driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install())
+            #   , options=options
+        )
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.get(url)
@@ -189,7 +192,7 @@ class MoodleBot:
             for task in new_posts:
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce,\nFYI, new update for: \n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
+                    f"Master Bruce,\nFYI, new update for: \n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers",
                 )
             logger.info("Finished running, new updates found and sent to user")
             print("\n\nNew moodle updates sent to user\n\n")
