@@ -39,10 +39,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from dotenv import dotenv_values
 import telebot
 
-# load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
-# get username from the .env file
+# get username and password from the .env file
 username = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
+BOT_TOKEN = os.environ["BOT_TOKEN"]
+CHAT_ID = os.environ["CHAT_ID"]
 
 
 class MoodleBot:
@@ -58,9 +59,9 @@ class MoodleBot:
         return new_scan_result
 
     def open_url_link(url: str):
-        # def open_url_link(url: str):
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
+
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -69,14 +70,12 @@ class MoodleBot:
         wait.until(
             EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/input'))
         ).click()
-        # wait until the page loads
+
         time.sleep(3)
         driver.find_element(By.ID, "pills-email-tab").click()
         time.sleep(2)
         driver.find_element(By.ID, "username").send_keys(str(username))
         driver.find_element(By.ID, "password").send_keys(str(password))
-        # press enter key
-        # driver.find_element(By.ID, "password").send_keys(u"\ue007")
         wait.until(
             EC.element_to_be_clickable((By.XPATH, '//*[@id="f3"]/div[3]/button'))
         ).click()
@@ -117,16 +116,15 @@ class MoodleBot:
             else:
                 data["description"] = ""
                 course_index = 2
-
             try:
                 # get the course name, if the course name is not Nan
                 data["course"] = event.find_all("div", class_="col-11")[
                     course_index
                 ].text
                 # get link to the event submission page
-                data["link"] = event.find_all("div", class_="col-11")[
-                    course_index
-                ].find("a")["href"]
+                data["link"] = event.find_all(
+                    "div", class_="card-footer text-right bg-transparent"
+                )[course_index].find("a")["href"]
                 # print(data["course"])
             except:
                 data["course"] = ""
@@ -167,6 +165,30 @@ class MoodleBot:
             writer.writeheader()
             writer.writerows(task)
 
+    # TELEGRAM BOT
+    def send_telegram_if_new(new_posts):  #
+        bot = telebot.TeleBot(BOT_TOKEN)
+
+        # send message to the user about the a latest update with the link to the submission page and the due date of the task
+        if len(new_posts) != 0:
+            for task in new_posts:
+                # res[che]
+                bot.send_message(
+                    536568724,
+                    f"Master Bruce, a new moodle update for the course: {task['course']} was just uploaded / updated.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
+                )
+            logger.info("Finished running, new updates found and sent to user")
+        else:
+            logger.info("Finished running, no updates found")
+            # bot.send_message(536568724, "No new moodle updates")
+
+            # @bot.message_handler(commands=['start', 'hello'])
+            # bot.reply_to(message, "Howdy, how are you doing?")
+
+            # @bot.message_handler(func=lambda msg: True)
+            # def echo_all(message):
+            # bot.reply_to(message, message.text)
+
 
 if __name__ == "__main__":
     # with open("task.json", "w") as f:
@@ -177,30 +199,6 @@ if __name__ == "__main__":
         previous_tasks = []
 
     res = MoodleBot.get_moodle_tasks()
-    # print(res)
 
     new_posts = MoodleBot.get_new_dictionaries(previous_tasks, res)
-
-    # TELEGRAM BOT
-    BOT_TOKEN = os.environ["BOT_TOKEN"]
-    bot = telebot.TeleBot(BOT_TOKEN)
-
-    # send message to the user about the a latest update with the link to the submission page and the due date of the task
-    if len(new_posts) != 0:
-        for task in new_posts:
-            # res[che]
-            bot.send_message(
-                536568724,
-                f"Master Bruce, there is a new moodle update for the Course: {task['course']}\n \nAssignment named: '{task['title']}' was just uploaded / updated.\n \nIt's deadline is {task['date']}. \nLink: {task['link']} \n \n Best of luck!",
-            )
-        logger.info("Finished running, new updates found and sent to user")
-    else:
-        logger.info("Finished running, no updates found")
-        # bot.send_message(536568724, "No new moodle updates")
-
-# @bot.message_handler(commands=['start', 'hello'])
-# bot.reply_to(message, "Howdy, how are you doing?")
-
-# @bot.message_handler(func=lambda msg: True)
-# def echo_all(message):
-# bot.reply_to(message, message.text)
+    MoodleBot.send_telegram_if_new(new_posts)
