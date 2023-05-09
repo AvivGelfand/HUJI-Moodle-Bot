@@ -68,8 +68,7 @@ class MoodleBot:
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install())
-            #   , options=options
+            service=Service(ChromeDriverManager().install()), options=options
         )
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -176,7 +175,7 @@ class MoodleBot:
         return new_tasks
 
     # create a function to output the new tasks to a csv file
-    def output_to_csv(output_dict):
+    def output_to_csv():
         with open("tasks.json", "r") as f:
             task = json.load(f)
         with open("tasks.csv", "w", encoding="utf-8") as f:  # Specify utf-8 encoding
@@ -227,5 +226,6 @@ if __name__ == "__main__":
     # print("new posts: ", new_posts)
     MoodleBot.send_telegram_if_new(new_posts, bot_token)
 
+    MoodleBot.output_to_csv()
 
 # print("done\n\n\n\n")
