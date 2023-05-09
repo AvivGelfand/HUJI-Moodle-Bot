@@ -216,6 +216,7 @@ if __name__ == "__main__":
             previous_tasks = json.load(f)
             # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
     except FileNotFoundError:
+        logger.info("did not find previous tasks")
         previous_tasks = []
         # print("previous tasks: ", previous_tasks)
 
