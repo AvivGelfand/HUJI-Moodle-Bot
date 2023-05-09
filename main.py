@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+
 import selenium.webdriver.support.expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import telebot
@@ -64,7 +66,9 @@ class MoodleBot:
 
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+
+        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.get(url)
         wait = WebDriverWait(driver, 10)
         wait.until(
@@ -105,7 +109,7 @@ class MoodleBot:
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
-            print(data["title"])
+            # print(data["title"])
 
             data["date"] = event.find_all("div", class_="col-11")[0].text
 
@@ -185,12 +189,13 @@ class MoodleBot:
             for task in new_posts:
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce,\nJust letting you know that there is a new moodle update for the course: \n**{task['course']}**.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
+                    f"Master Bruce,\nFYI, new update for: \n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
                 )
             logger.info("Finished running, new updates found and sent to user")
+            print("\n\nNew moodle updates sent to user\n\n")
         else:
             logger.info("Finished running, no updates found")
-            # print("/n/n No new moodle updates")
+            print("/n/n No new moodle updates")
             # bot.send_message(536568724, "No new moodle updates")
 
             # @bot.message_handler(commands=['start', 'hello'])
@@ -206,10 +211,10 @@ if __name__ == "__main__":
     try:
         with open("tasks.json", "r") as f:
             previous_tasks = json.load(f)
-            print("\n\nprevious tasks are not empty\n\n", previous_tasks)
+            # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
     except FileNotFoundError:
         previous_tasks = []
-        print("previous tasks: ", previous_tasks)
+        # print("previous tasks: ", previous_tasks)
 
     res = MoodleBot.get_moodle_tasks()
     # print("res: ", res)
