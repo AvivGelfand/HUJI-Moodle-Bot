@@ -192,7 +192,7 @@ class MoodleBot:
             for task in new_posts:
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce,\n\nFYI, new event: \n\n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers",
+                    f"Master Bruce,\n\nFYI, new event: \n\n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \nDeadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers",
                 )
             logger.info("Finished running, new updates found and sent to user")
             print("\n\nNew moodle updates sent to user\n\n")
