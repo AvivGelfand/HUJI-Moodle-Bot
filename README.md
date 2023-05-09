@@ -1,12 +1,6 @@
 # Alfred - a Personal Moodle Bot
 
-**This is a python code:**
-
-- Implement your script in `main.py`
-
-  A Python program that logs in to the and scrapes tasks from the calendar view of the site. The program logs in to the site using the credentials provided in the .env file and retrieves the titles, dates, descriptions, course names, and submission links of upcoming tasks. The scraped information is saved in a JSON file named `tasks.json`.
-
-  **Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.
+**Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.
 
 ## Project Files
 
@@ -72,4 +66,3 @@ To run the script, simply run **`python main.py`**.
 ## Credits
 
 This project's structure is a [for of the python-github-action-template repository](https://github.com/patrickloeber/python-github-action-template). Special thanks to [patrickloeber](https://github.com/patrickloeber) for his hard work and for making his code available under an open source license. I learned a lot from his [youtube channel]() while working on this project.
-
