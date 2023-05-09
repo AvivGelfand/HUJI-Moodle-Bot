@@ -226,6 +226,6 @@ if __name__ == "__main__":
     # print("new posts: ", new_posts)
     MoodleBot.send_telegram_if_new(new_posts, bot_token)
 
-    MoodleBot.output_to_csv()
+    # MoodleBot.output_to_csv()
 
 # print("done\n\n\n\n")
