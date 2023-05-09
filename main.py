@@ -102,6 +102,7 @@ class GetTask:
                 "is due": "",
                 ":": "",
                 "יש להגיש את ": "",
+                "של": "",
             }
             data["title"] = event["data-event-title"]
             for old, new in title_replacements.items():
@@ -205,7 +206,7 @@ if __name__ == "__main__":
             # res[che]
             bot.send_message(
                 536568724,
-                f"Master Bruce, there is a new moodle for the Course: {task['course']}\n \n Assignment named: '{task['title']}' was just uploaded.\n \n The deadline set for {task['date']}. \nLink: {task['link']} \n \n Best of luck!",
+                f"Master Bruce, there is a new moodle update for the Course: {task['course']}\n \nAssignment named: '{task['title']}' was just uploaded / updated.\n \nIt's deadline is {task['date']}. \nLink: {task['link']} \n \n Best of luck!",
             )
         logger.info("Finished running, new updates found and sent to user")
     else:
