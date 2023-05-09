@@ -31,14 +31,18 @@ logger_file_handler = logging.handlers.RotatingFileHandler(
 )
 
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-# Write to the log file
-logger_file_handler = logging.handlers.RotatingFileHandler(
-    log_file_path,
-    maxBytes=1024 * 1024,
-    backupCount=1,
-    encoding="utf8",
-)
+logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
+
+logger.info("scrape_tasks activated")
+# Write to the log file
+# logger_file_handler = logging.handlers.RotatingFileHandler(
+#     log_file_path,
+#     maxBytes=1024 * 1024,
+#     backupCount=1,
+#     encoding="utf8",
+# )
+
 
 # get username and password from the .env file
 # username = os.environ.get("USERNAME")
@@ -163,18 +167,18 @@ class MoodleBot:
         logger.info(result)
 
         # Save the information to a json file
-        # with open("tasks.json", "w") as f:
-        #     json.dump(result, f)
-
-        # Get the current directory
-        current_directory = os.getcwd()
-
-        # Append the filenames to the directory path
-        json_file_path = os.path.join(current_directory, "tasks.json")
-
-        # Save the information to a json file
-        with open(json_file_path, "w") as f:
+        with open("tasks.json", "w") as f:
             json.dump(result, f)
+
+        # # Get the current directory
+        # current_directory = os.getcwd()
+
+        # # Append the filenames to the directory path
+        # json_file_path = os.path.join(current_directory, "tasks.json")
+
+        # # Save the information to a json file
+        # with open(json_file_path, "w") as f:
+        #     json.dump(result, f)
         return result
 
     # create a function to compare new and old tasks
@@ -240,13 +244,13 @@ class MoodleBot:
 
 
 if __name__ == "__main__":
-    # with open("task.json", "w") as f:
     try:
         # Get the current directory
-        current_directory = os.getcwd()
+        # current_directory = os.getcwd()
         # Append the filenames to the directory path
-        json_file_path = os.path.join(current_directory, "tasks.json")
-        with open(json_file_path, "r") as f:
+        # json_file_path = os.path.join(current_directory, "tasks.json")
+        # with open(json_file_path, "r") as f:
+        with open("task.json", "r") as f:
             previous_tasks = json.load(f)
         logger.info("found previous tasks")
         # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
