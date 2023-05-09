@@ -34,8 +34,8 @@ logger.addHandler(logger_file_handler)
 # get username and password from the .env file
 username = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
-bot_token = os.environ.get["BOTTOKEN"]
-chat_id = os.environ.get["CHATID"]
+bot_token = os.environ.get("BOTTOKEN")
+chat_id = os.environ.get("CHATID")
 
 
 class MoodleBot:
