@@ -42,8 +42,8 @@ import telebot
 # get username and password from the .env file
 username = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
-BOT_TOKEN = os.environ["BOT_TOKEN"]
-CHAT_ID = os.environ["CHAT_ID"]
+BOT_TOKEN = os.environ.get["BOT_TOKEN"]
+CHAT_ID = os.environ.get["CHAT_ID"]
 
 
 class MoodleBot:
@@ -174,7 +174,7 @@ class MoodleBot:
             for task in new_posts:
                 # res[che]
                 bot.send_message(
-                    536568724,
+                    CHAT_ID,
                     f"Master Bruce, a new moodle update for the course: {task['course']} was just uploaded / updated.\n \nAssignment name: \n'{task['title']}' \n \n Deadline is {task['date']}. \n\nLink: {task['link']} \n \n Best of luck!",
                 )
             logger.info("Finished running, new updates found and sent to user")
