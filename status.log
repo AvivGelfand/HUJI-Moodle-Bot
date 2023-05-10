@@ -296,3 +296,12 @@
 2023-05-10 22:16:39,151 - __main__ - INFO - scrape_tasks finished, JSON file created
 2023-05-10 22:16:41,210 - __main__ - INFO - get_new_dictionaries activated
 2023-05-10 22:16:41,211 - __main__ - INFO - Finished running, no updates found
+2023-05-10 22:31:46,349 - __main__ - INFO - scrape_tasks activated
+2023-05-10 22:31:46,349 - __main__ - INFO - open_url_link activated
+2023-05-10 22:32:06,119 - __main__ - INFO - open_url_link finished
+2023-05-10 22:32:06,119 - __main__ - INFO - scrape_tasks activated
+2023-05-10 22:32:06,131 - __main__ - INFO - Searching for previous tasks
+2023-05-10 22:32:06,131 - __main__ - INFO - found previous tasks
+2023-05-10 22:32:06,331 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-10 22:32:08,389 - __main__ - INFO - get_new_dictionaries activated
+2023-05-10 22:32:08,390 - __main__ - INFO - Finished running, no updates found
