@@ -208,7 +208,7 @@ class MoodleBot:
         # # Save the information to a json file
         # with open(json_file_path, "w") as f:
         #     json.dump(result, f)
-        print("\n\nresultarr: ", resultarr, "\n\n\n")
+        print("\n\nresultarr: ", resultarr, "\n")
         return resultarr
 
     # create a function to compare new and old tasks
