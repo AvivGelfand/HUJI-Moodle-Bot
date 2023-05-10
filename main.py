@@ -138,7 +138,7 @@ class MoodleBot:
         # logger.info(events)
 
         # Loop through all the events and extract the necessary information
-        resultarr = []
+        new_tasks = []
         for event in events:
             data = {}
 
@@ -187,17 +187,21 @@ class MoodleBot:
                 # print("no link found")
 
             # append the data to the result list
-            resultarr.append(data)
-        logger.info("scrape_tasks finished, JSON file created")
-        # logger.info(resultarr)
+            new_tasks.append(data)
+
+        previous_tasks = MoodleBot.get_previous_tasks()
+        logger.info("previous_tasks: ", previous_tasks)
+
+        # logger.info(new_tasks)
 
         # Get the path of the current Python script
-        script_dir = os.path.dirname(os.path.abspath(__file__))
 
+        # new_tasks = []
         # Save the JSON file in the same folder as the script
         json_file_path = os.path.join(script_dir, "tasks.json")
         with open(json_file_path, "w") as f:
-            json.dump(resultarr, f)
+            json.dump(new_tasks, f)
+        logger.info("scrape_tasks finished, JSON file created")
 
         # # Get the current directory
         # current_directory = os.getcwd()
@@ -208,8 +212,21 @@ class MoodleBot:
         # # Save the information to a json file
         # with open(json_file_path, "w") as f:
         #     json.dump(result, f)
-        print("\n\nresultarr: ", resultarr, "\n")
-        return resultarr
+        print("\n\new_tasks: ", new_tasks, "\n")
+        return previous_tasks, new_tasks
+
+    def get_previous_tasks():
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        try:
+            logger.info("Searching for previous tasks")
+            with open(os.path.join(script_dir, "tasks.json"), "r") as f:
+                previous_tasks = json.load(f)
+            logger.info("found previous tasks")
+            # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
+        except FileNotFoundError:
+            logger.info("did not find previous tasks")
+            previous_tasks = []
+        return previous_tasks
 
     # create a function to compare new and old tasks
     def compare_tasks(new_tasks, old_tasks):
@@ -223,20 +240,17 @@ class MoodleBot:
         ]  # return the new tasks
 
     # create a function to get the new dictionaries
-    def get_new_dictionaries(previous_list, new_list):
+    def get_new_dictionaries(old_list, new_list):
         # create a new list to store the new dictionaries
         logger.info("get_new_dictionaries activated")
-
-        new_tasks = []
-
+        new_dictionaries = []
         # iterate through the new_list
         for new_dict in new_list:
             # check if the dictionary is already present in the current_list
-            if new_dict not in previous_list:
+            if new_dict not in old_list:
                 # add the new dictionary to the result list
-                new_tasks.append(new_dict)
-
-        return new_tasks
+                new_dictionaries.append(new_dict)
+        return new_dictionaries
 
     # create a function to output the new tasks to a csv file
     def output_to_csv():
@@ -274,27 +288,9 @@ class MoodleBot:
 
 
 if __name__ == "__main__":
-    try:
-        # Get the current directory
-        # current_directory = os.getcwd()
-        # Append the filenames to the directory path
-        # json_file_path = os.path.join(current_directory, "tasks.json")
-        # with open(json_file_path, "r") as f:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        # with open(json_file_path, "r") as f:
-        with open(os.path.join(script_dir, "tasks.json"), "r") as f:
-            previous_tasks = json.load(f)
-        logger.info("found previous tasks")
-        # print("\n\nprevious tasks are not empty\n\n", previous_tasks)
-    except FileNotFoundError:
-        logger.info("did not find previous tasks")
-        previous_tasks = []
-        # print("previous tasks: ", previous_tasks)
+    previous_tasks, new_tasks = MoodleBot.get_moodle_tasks()
 
-    res = MoodleBot.get_moodle_tasks()
-    # print("res: ", res)
-
-    new_posts = MoodleBot.get_new_dictionaries(previous_tasks, res)
+    new_posts = MoodleBot.get_new_dictionaries(previous_tasks, new_tasks)
     # print("new posts: ", new_posts)
     MoodleBot.send_telegram_if_new(new_posts, bot_token)
 
