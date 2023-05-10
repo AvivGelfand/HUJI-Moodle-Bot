@@ -16,15 +16,33 @@ import logging
 import logging.handlers
 import os
 
+
 # import datetime
 # from dotenv import load_dotenv
 # from dotenv import dotenv_values
 # import requests
 
+# logger = logging.getLogger(__name__)
+# logger.setLevel(logging.DEBUG)
+# logger_file_handler = logging.handlers.RotatingFileHandler(
+#     "status.log",
+#     maxBytes=1024 * 1024,
+#     backupCount=1,
+#     encoding="utf8",
+# )
+
+
+# import os
+# import logging
+# import logging.handlers
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+log_file_path = os.path.join(script_dir, "status.log")
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger_file_handler = logging.handlers.RotatingFileHandler(
-    "status.log",
+    log_file_path,
     maxBytes=1024 * 1024,
     backupCount=1,
     encoding="utf8",
@@ -35,6 +53,13 @@ logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
 logger.info("scrape_tasks activated")
+
+
+# formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+# logger_file_handler.setFormatter(formatter)
+# logger.addHandler(logger_file_handler)
+
+# logger.info("scrape_tasks activated")
 # Write to the log file
 # logger_file_handler = logging.handlers.RotatingFileHandler(
 #     log_file_path,
@@ -80,7 +105,8 @@ class MoodleBot:
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()), options=options
+            service=Service(ChromeDriverManager().install()),
+            # options=options
         )
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -110,10 +136,10 @@ class MoodleBot:
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
         # Get the events
         events = soup.find_all("div", class_="event")
-        logger.info(events)
+        # logger.info(events)
 
         # Loop through all the events and extract the necessary information
-        result = []
+        resultarr = []
         for event in events:
             data = {}
 
@@ -131,7 +157,7 @@ class MoodleBot:
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
-            # print(data["title"])
+            print(data["title"])
 
             data["date"] = event.find_all("div", class_="col-11")[0].text
 
@@ -162,17 +188,17 @@ class MoodleBot:
                 # print("no link found")
 
             # append the data to the result list
-            result.append(data)
+            resultarr.append(data)
         logger.info("scrape_tasks finished, JSON file created")
-        logger.info(result)
+        # logger.info(resultarr)
 
-        # Save the information to a json file in the same directory as the script
-        result = json.dumps(result, indent=4, ensure_ascii=False)
-        result_json = json.dumps(result, indent=4, ensure_ascii=False)
+        # Get the path of the current Python script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
 
-        # Open a file in write mode and write the JSON string to it
-        with open("result.json", "w") as f:
-            f.write(result_json)
+        # Save the JSON file in the same folder as the script
+        json_file_path = os.path.join(script_dir, "tasks.json")
+        with open(json_file_path, "w") as f:
+            json.dump(resultarr, f)
 
         # # Get the current directory
         # current_directory = os.getcwd()
@@ -183,7 +209,8 @@ class MoodleBot:
         # # Save the information to a json file
         # with open(json_file_path, "w") as f:
         #     json.dump(result, f)
-        return result
+        print("\n\nresultarr: ", resultarr, "\n\n\n")
+        return resultarr
 
     # create a function to compare new and old tasks
     def compare_tasks(new_tasks, old_tasks):
@@ -236,7 +263,7 @@ class MoodleBot:
             print("\n\nNew moodle updates sent to user\n\n")
         else:
             logger.info("Finished running, no updates found")
-            print("/n/n No new moodle updates")
+            print("\n\n No new moodle updates")
             # bot.send_message(536568724, "No new moodle updates")
 
             # @bot.message_handler(commands=['start', 'hello'])
@@ -254,7 +281,9 @@ if __name__ == "__main__":
         # Append the filenames to the directory path
         # json_file_path = os.path.join(current_directory, "tasks.json")
         # with open(json_file_path, "r") as f:
-        with open("task.json", "r") as f:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        # with open(json_file_path, "r") as f:
+        with open(os.path.join(script_dir, "tasks.json"), "r") as f:
             previous_tasks = json.load(f)
         logger.info("found previous tasks")
         # print("\n\nprevious tasks are not empty\n\n", previous_tasks)

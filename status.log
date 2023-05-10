@@ -414,3 +414,586 @@
 2023-05-10 07:00:19,202 - __main__ - INFO - []
 2023-05-10 07:00:21,261 - __main__ - INFO - get_new_dictionaries activated
 2023-05-10 07:00:21,262 - __main__ - INFO - Finished running, no updates found
+2023-05-10 10:46:09,886 - __main__ - INFO - scrape_tasks activated
+2023-05-10 10:46:09,888 - __main__ - INFO - found previous tasks
+2023-05-10 10:46:09,888 - __main__ - INFO - open_url_link activated
+2023-05-10 10:46:33,417 - __main__ - INFO - open_url_link finished
+2023-05-10 10:46:33,418 - __main__ - INFO - scrape_tasks activated
+2023-05-10 10:46:33,537 - __main__ - INFO - [<div class="event mt-3" data-course-id="52571" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="129048" data-event-title="תרגיל 5 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">תרגיל 5 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1683711000">Today</a>, 12:30</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52571">52571 Regression and Statistical Models</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=370862&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="5580203" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="129258" data-event-title="מטלה 5 - מלאי is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מטלה 5 - מלאי is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1683752340">Today</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=5580203">55802-3 Fundamentals of Accounting  for Business Administration, 3 -  Adam</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=371464&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="55430" data-event-component="mod_forum" data-event-count="" data-event-eventtype="due" data-event-id="129716" data-event-title="מטלת בונוס דורש התייחסות" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/forum/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מטלת בונוס דורש התייחסות</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1684573260">Saturday, 20 May</a>, 12:01</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11"><div class="no-overflow"><p><b>זוהי מטלת בונוס, היא איננה חובה, אך הגשתה מזכה ב-4 נקודות בונוס לציון הסופי של הקורס. ניתן להגיש את המטלה עד ה-20.5.</b></p>
+<p></p>
+<p dir="rtl">בחרו לפחות אחת מהפעילויות הבאות (במקרה הצורך, העזרו בחבר/ה לביצוע הפעולה):</p>
+<ul><li dir="rtl">
+<p dir="rtl">אם אתם בדרך כלל שמים איפור, הפסיקו לשים איפור. אם אתם בדרך כלל לא שמים איפור, שימו איפור כלשהו על פרצופכם.</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">אם אתם בדרך כלל שמים לק, הפסיקו לשים לק. אם אתם בדרך כלל לא שמים לק, שימו לק.</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">אם אתם בדרך כלל לא מגלחים את בתי השחי / הרגליים שלכם, גלחו אותם.</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">השתמשו בבושם או תכשיר טיפוח שאינו "מיועד" למגדר שלכם ושאתם לא משתמשים בו בדרך כלל (לדוג' נשים, שימו בושם "של גברים")</p>
+</li>
+</ul><p dir="rtl">השתדלו להתמיד בפעולה זו למשך<span> </span><span style="text-decoration:underline;">4 ימים לפחות</span>. בסופם, כתבו לגבי החוויה שעברתם (מומלץ גם לכתוב בזמן אמת בכדי שלא תשכחו). התייחסו לשאלות הבאות:</p>
+<ul><li dir="rtl">
+<p dir="rtl">כיצד החוויה הרגישה לכם מבחינה פיזית? ומבחינה רגשית?</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">האם החוויה הייתה לכם מוזרה? למה?</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">כיצד אחרים ואחרות סביבכם הגיבו?</p>
+</li>
+<li dir="rtl">
+<p dir="rtl">כיצד החוויה השפיעה עליכם מבחינה מגדרית (לדוג' תחושות של נשיות/גבריות)?</p>
+</li>
+</ul><p><b>מינימום 500 מילים.</b></p>
+<p>יש להגיש את המטלה לפורום. <b>ניתן להגיש את המטלה לפורום באופן אנונימי</b>.</p>
+<p></p>
+<p></p></div></div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=55430">55430 Critical Views of Gender and Social Order</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/forum/view.php?id=263677">View</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="55124" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="111506" data-event-title="Assignment 1 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">Assignment 1 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1684616100">Saturday, 20 May</a>, 23:55</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11"><p dir="ltr" style="text-align:right;"><br/></p></div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=55124">55124 Business Modelling with Excel</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=327533&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_quiz" data-event-count="" data-event-eventtype="close" data-event-id="126627" data-event-title="תרגיל ממוחשב 2 closes" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Close window" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/quiz/1683691959/icon" title="Close window"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">תרגיל ממוחשב 2 closes</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1684702740">Sunday, 21 May</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11"><div class="no-overflow"><p dir="rtl" style="text-align:right;">יש להגיש את התרגיל הממוחשב כתנאי מקדים לצפיה בתשובות ולהעלאה של תגובה בפורום הייעודי.</p><p dir="rtl" style="text-align:right;"><strong>המועד האחרון להעלאה של תגובה בפורום הייעודי  = יום א, 21.5.2023, שעה 23:59</strong>.</p></div></div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/quiz/view.php?id=149135">Attempt quiz now</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="" data-event-component="" data-event-count="" data-event-eventtype="" data-event-id="3165" data-event-title="שבועות" data-eventtype-other="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_other">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Site event" class="icon fa fa-globe fa-fw" role="img" title="Site event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">שבועות</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1684962000">Thursday, 25 May, </a>00:00 <strong>»</strong> <a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1685048400">Friday, 26 May, </a>00:00</div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_quiz" data-event-count="" data-event-eventtype="close" data-event-id="39155" data-event-title="תאריך הגשה בוחן ממוחשב של חלק 2" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Close window" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/quiz/1683691959/icon" title="Close window"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">תאריך הגשה בוחן ממוחשב של חלק 2</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1685221140">Saturday, 27 May</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/quiz/view.php?id=149138">Attempt quiz now</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="" data-event-component="" data-event-count="" data-event-eventtype="" data-event-id="3166" data-event-title="סיום סמסטר ב" data-eventtype-other="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_other">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Site event" class="icon fa fa-globe fa-fw" role="img" title="Site event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">סיום סמסטר ב</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1688072400">Friday, 30 June</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="" data-event-component="" data-event-count="" data-event-eventtype="" data-event-id="3168" data-event-title="עיד אל אדחא" data-eventtype-other="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_other">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Site event" class="icon fa fa-globe fa-fw" role="img" title="Site event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">עיד אל אדחא</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1688072400">Friday, 30 June</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="5580203" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="126816" data-event-title="מבחן סמ' ב 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן סמ' ב 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1688464800">Tuesday, 4 July</a>, 13:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">77201:  שמות המתחילים ב א - מ  אולם מיועד למעט תלמידים<br/>77202:  שמות המתחילים ב נ - ת  תוספת זמן</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=5580203">55802-3 Fundamentals of Accounting  for Business Administration, 3 -  Adam</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="55124" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="84735" data-event-title="מבחן 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1688850000">Sunday, 9 July</a></div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">כיתה 1 - חוות רוח:  שמות המתחילים ב ת - ת  תוספת זמן<br/>כיתה 2 -חוות רוח:  תוספת זמן  אולם מיועד למעט תלמידים<br/>כיתה 3- חוות רוח:  שמות המתחילים ב א - א<br/>כיתה 4- חוות רוח:  שמות המתחילים ב ח - י  תוספת זמן<br/>כיתה 6 -חוות רוח:  שמות המתחילים ב ב - ז<br/>שטח פתוח - חוות רוח:  שמות המתחילים ב כ - ש</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=55124">55124 Business Modelling with Excel</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="67127" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="103527" data-event-title="מבחן 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1689055200">Tuesday, 11 July</a>, 09:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">C220<br/>C221</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=67127">67127 Human Language from a Computational</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52571" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="128896" data-event-title="מבחן 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1689055200">Tuesday, 11 July</a>, 09:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52571">52571 Regression and Statistical Models</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="5580301" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="127877" data-event-title="מבחן סמ' ב 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן סמ' ב 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1689156000">Wednesday, 12 July</a>, 13:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">2111 חבר<br/>21204 חברה:  שמות המתחילים ב א - ז  תוספת זמן<br/>21205 חברה:  שמות המתחילים ב ח - ש<br/>21208 חברה:  שמות המתחילים ב ת - ת  תוספת זמן  אולם מיועד למעט</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=5580301">55803-1 Fundamentals of Finance, 1 -  Sade</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="5551801" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="127845" data-event-title="מבחן סמ' ב 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן סמ' ב 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1689501600">Sunday, 16 July</a>, 13:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">2111 חבר:  שמות המתחילים ב נ - ש<br/>2113 חבר:  שמות המתחילים ב ג - מ<br/>21204 חברה:  שמות המתחילים ב א - ב  תוספת זמן<br/>21208 חברה:  שמות המתחילים ב ת - ת  תוספת זמן  אולם מיועד למעט</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=5551801">55518-1 Research Methods in  Business Administration, 1 -  Mentser</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="5580401" data-event-component="" data-event-count="" data-event-eventtype="course" data-event-id="127887" data-event-title="מבחן סמ' ב 3 חלקי א'" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><i aria-label="Course event" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course event"></i></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">מבחן סמ' ב 3 חלקי א'</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1689847200">Thursday, 20 July</a>, 13:00</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Description" class="icon fa fa-align-left fa-fw" role="img" title="Description"></i></div>
+<div class="description-content col-11">2113 חבר:  שמות המתחילים ב מ - ש<br/>21205 חברה:  שמות המתחילים ב ת - ת  תוספת זמן<br/>21208 חברה:  שמות המתחילים ב א - ל  אולם מיועד למעט תלמידים</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=5580401">55804-1 Fundamentals of Marketing Managment, 1 -  Dover</a></div>
+</div>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="39146" data-event-title="פרוייקט סימולציה של חלק 1 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">פרוייקט סימולציה של חלק 1 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1690059540">Saturday, 22 July</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149164&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="39147" data-event-title="פרוייקט סימולציה של חלק 2 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">פרוייקט סימולציה של חלק 2 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1690059540">Saturday, 22 July</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149165&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="39148" data-event-title="פרוייקט סימולציה של חלק 3 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">פרוייקט סימולציה של חלק 3 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1690059540">Saturday, 22 July</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149166&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>, <div class="event mt-3" data-course-id="52324" data-event-component="mod_assign" data-event-count="" data-event-eventtype="due" data-event-id="39149" data-event-title="פרוייקט סימולציה של חלק 4 is due" data-eventtype-course="1" data-type="event">
+<div class="card rounded">
+<div class="box card-header clearfix calendar_event_course">
+<div class="commands float-sm-right">
+</div>
+<div class="d-inline-block mt-1 align-top"><img alt="Activity event" class="icon" src="https://moodle2.cs.huji.ac.il/nu22/theme/image.php/huji/assign/1683691959/icon" title="Activity event"/></div>
+<div class="d-inline-block">
+<h3 class="name d-inline-block">פרוייקט סימולציה של חלק 4 is due</h3>
+</div>
+</div>
+<div class="description card-body">
+<div class="row">
+<div class="col-1"><i aria-label="When" class="icon fa fa-clock-o fa-fw" role="img" title="When"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=day&amp;time=1690059540">Saturday, 22 July</a>, 23:59</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Event type" class="icon fa fa-calendar fa-fw" role="img" title="Event type"></i></div>
+<div class="col-11">Course event</div>
+</div>
+<div class="row mt-1">
+<div class="col-1"><i aria-label="Course" class="icon fa fa-graduation-cap fa-fw" role="img" title="Course"></i></div>
+<div class="col-11"><a href="https://moodle2.cs.huji.ac.il/nu22/course/view.php?id=52324">52324 Probability for Statistics students</a></div>
+</div>
+</div>
+<div class="card-footer text-right bg-transparent">
+<a class="card-link" href="https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149167&amp;action=editsubmission">Add submission</a>
+</div>
+</div>
+</div>]
+2023-05-10 10:46:33,588 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-10 10:46:33,589 - __main__ - INFO - [{'title': 'תרגיל 5 ', 'date': 'Today, 12:30', 'description': '', 'course': '52571 Regression and Statistical Models', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=370862&action=editsubmission'}, {'title': 'מטלה 5 - מלאי ', 'date': 'Today, 23:59', 'description': '', 'course': '55802-3 Fundamentals of Accounting  for Business Administration, 3 -  Adam', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=371464&action=editsubmission'}, {'title': 'מטלת בונוס דורש התייחסות', 'date': 'Saturday, 20 May, 12:01', 'description': 'זוהי מטלת בונוס, היא איננה חובה, אך הגשתה מזכה ב-4 נקודות בונוס לציון הסופי של הקורס. ניתן להגיש את המטלה עד ה-20.5.\n\nבחרו לפחות אחת מהפעילויות הבאות (במקרה הצורך, העזרו בחבר/ה לביצוע הפעולה):\n\nאם אתם בדרך כלל שמים איפור, הפסיקו לשים איפור. אם אתם בדרך כלל לא שמים איפור, שימו איפור כלשהו על פרצופכם.\n\n\nאם אתם בדרך כלל שמים לק, הפסיקו לשים לק. אם אתם בדרך כלל לא שמים לק, שימו לק.\n\n\nאם אתם בדרך כלל לא מגלחים את בתי השחי / הרגליים שלכם, גלחו אותם.\n\n\nהשתמשו בבושם או תכשיר טיפוח שאינו "מיועד" למגדר שלכם ושאתם לא משתמשים בו בדרך כלל (לדוג\' נשים, שימו בושם "של גברים")\n\nהשתדלו להתמיד בפעולה זו למשך 4 ימים לפחות. בסופם, כתבו לגבי החוויה שעברתם (מומלץ גם לכתוב בזמן אמת בכדי שלא תשכחו). התייחסו לשאלות הבאות:\n\nכיצד החוויה הרגישה לכם מבחינה פיזית? ומבחינה רגשית?\n\n\nהאם החוויה הייתה לכם מוזרה? למה?\n\n\nכיצד אחרים ואחרות סביבכם הגיבו?\n\n\nכיצד החוויה השפיעה עליכם מבחינה מגדרית (לדוג\' תחושות של נשיות/גבריות)?\n\nמינימום 500 מילים.\nיש להגיש את המטלה לפורום. ניתן להגיש את המטלה לפורום באופן אנונימי.\n\n', 'course': '55430 Critical Views of Gender and Social Order', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/forum/view.php?id=263677'}, {'title': 'Assignment 1 ', 'date': 'Saturday, 20 May, 23:55', 'description': '', 'course': '55124 Business Modelling with Excel', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=327533&action=editsubmission'}, {'title': 'תרגיל ממוחשב 2 closes', 'date': 'Sunday, 21 May, 23:59', 'description': 'יש להגיש את התרגיל הממוחשב כתנאי מקדים לצפיה בתשובות ולהעלאה של תגובה בפורום הייעודי.המועד האחרון להעלאה של תגובה בפורום הייעודי\xa0 = יום א, 21.5.2023, שעה 23:59.', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/quiz/view.php?id=149135'}, {'title': 'שבועות', 'date': 'Thursday, 25 May, 00:00 » Friday, 26 May, 00:00', 'description': '', 'course': '', 'link': ''}, {'title': 'תאריך בוחן ממוחשב  חלק 2', 'date': 'Saturday, 27 May, 23:59', 'description': '', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/quiz/view.php?id=149138'}, {'title': 'סיום סמסטר ב', 'date': 'Friday, 30 June', 'description': '', 'course': '', 'link': ''}, {'title': 'עיד אל אדחא', 'date': 'Friday, 30 June', 'description': '', 'course': '', 'link': ''}, {'title': "מבחן סמ' ב 3 חלקי א'", 'date': 'Tuesday, 4 July, 13:00', 'description': '77201:  שמות המתחילים ב א - מ  אולם מיועד למעט תלמידים77202:  שמות המתחילים ב נ - ת  תוספת זמן', 'course': '55802-3 Fundamentals of Accounting  for Business Administration, 3 -  Adam', 'link': ''}, {'title': "מבחן 3 חלקי א'", 'date': 'Sunday, 9 July', 'description': 'כיתה 1 - חוות רוח:  שמות המתחילים ב ת - ת  תוספת זמןכיתה 2 -חוות רוח:  תוספת זמן  אולם מיועד למעט תלמידיםכיתה 3- חוות רוח:  שמות המתחילים ב א - אכיתה 4- חוות רוח:  שמות המתחילים ב ח - י  תוספת זמןכיתה 6 -חוות רוח:  שמות המתחילים ב ב - זשטח פתוח - חוות רוח:  שמות המתחילים ב כ - ש', 'course': '55124 Business Modelling with Excel', 'link': ''}, {'title': "מבחן 3 חלקי א'", 'date': 'Tuesday, 11 July, 09:00', 'description': 'C220C221', 'course': '67127 Human Language from a Computational', 'link': ''}, {'title': "מבחן 3 חלקי א'", 'date': 'Tuesday, 11 July, 09:00', 'description': '', 'course': '52571 Regression and Statistical Models', 'link': ''}, {'title': "מבחן סמ' ב 3 חלקי א'", 'date': 'Wednesday, 12 July, 13:00', 'description': '2111 חבר21204 חברה:  שמות המתחילים ב א - ז  תוספת זמן21205 חברה:  שמות המתחילים ב ח - ש21208 חברה:  שמות המתחילים ב ת - ת  תוספת זמן  אולם מיועד למעט', 'course': '55803-1 Fundamentals of Finance, 1 -  Sade', 'link': ''}, {'title': "מבחן סמ' ב 3 חלקי א'", 'date': 'Sunday, 16 July, 13:00', 'description': '2111 חבר:  שמות המתחילים ב נ - ש2113 חבר:  שמות המתחילים ב ג - מ21204 חברה:  שמות המתחילים ב א - ב  תוספת זמן21208 חברה:  שמות המתחילים ב ת - ת  תוספת זמן  אולם מיועד למעט', 'course': '55518-1 Research Methods in  Business Administration, 1 -  Mentser', 'link': ''}, {'title': "מבחן סמ' ב 3 חלקי א'", 'date': 'Thursday, 20 July, 13:00', 'description': '2113 חבר:  שמות המתחילים ב מ - ש21205 חברה:  שמות המתחילים ב ת - ת  תוספת זמן21208 חברה:  שמות המתחילים ב א - ל  אולם מיועד למעט תלמידים', 'course': '55804-1 Fundamentals of Marketing Managment, 1 -  Dover', 'link': ''}, {'title': 'פרוייקט סימולציה  חלק 1 ', 'date': 'Saturday, 22 July, 23:59', 'description': '', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149164&action=editsubmission'}, {'title': 'פרוייקט סימולציה  חלק 2 ', 'date': 'Saturday, 22 July, 23:59', 'description': '', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149165&action=editsubmission'}, {'title': 'פרוייקט סימולציה  חלק 3 ', 'date': 'Saturday, 22 July, 23:59', 'description': '', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149166&action=editsubmission'}, {'title': 'פרוייקט סימולציה  חלק 4 ', 'date': 'Saturday, 22 July, 23:59', 'description': '', 'course': '52324 Probability for Statistics students', 'link': 'https://moodle2.cs.huji.ac.il/nu22/mod/assign/view.php?id=149167&action=editsubmission'}]
+2023-05-10 10:46:38,022 - __main__ - INFO - get_new_dictionaries activated
+2023-05-10 10:46:38,022 - __main__ - INFO - Finished running, no updates found
