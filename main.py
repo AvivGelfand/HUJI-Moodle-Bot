@@ -166,9 +166,13 @@ class MoodleBot:
         logger.info("scrape_tasks finished, JSON file created")
         logger.info(result)
 
-        # Save the information to a json file
-        with open("tasks.json", "w") as f:
-            json.dump(result, f)
+        # Save the information to a json file in the same directory as the script
+        result = json.dumps(result, indent=4, ensure_ascii=False)
+        result_json = json.dumps(result, indent=4, ensure_ascii=False)
+
+        # Open a file in write mode and write the JSON string to it
+        with open("result.json", "w") as f:
+            f.write(result_json)
 
         # # Get the current directory
         # current_directory = os.getcwd()
