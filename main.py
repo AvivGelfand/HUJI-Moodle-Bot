@@ -105,8 +105,7 @@ class MoodleBot:
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            # options=options
+            service=Service(ChromeDriverManager().install()), options=options
         )
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
