@@ -137,6 +137,8 @@ if __name__ == "__main__":
         logger.info("scrape_tasks activated")
 
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
+        print("soup: ", soup)
+
         # Get the events
         events = soup.find_all("div", class_="event")
         # logger.info(events)
@@ -158,7 +160,7 @@ if __name__ == "__main__":
 
             data["title"] = event["data-event-title"]
             logger.info(f'title: {data["title"]}')
-            print(data["title"])
+            # print(data["title"])
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
