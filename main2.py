@@ -73,9 +73,10 @@ if __name__ == "__main__":
             url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
             driver = open_url_link_usual(url)
             print("Logged in to usual")
+        print("driver: ", driver)
         old_tasks, new_tasks = scrape_tasks(driver)
         time.sleep(5)
-        driver.quit()
+        # driver.quit()
         return old_tasks, new_tasks
 
     def open_url_link_cs(url: str):
@@ -203,8 +204,8 @@ if __name__ == "__main__":
         print("previous_tasks", previous_tasks)
 
         json_file_path = os.path.join(script_dir, "tasks.json")
-        print("json_file_path: ", json_file_path)
-        
+        # print("json_file_path: ", json_file_path)
+
         with open(json_file_path, "w") as f:
             json.dump(new_tasks, f)
         logger.info("scrape_tasks finished, JSON file created")
