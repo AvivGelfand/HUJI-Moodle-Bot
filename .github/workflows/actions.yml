@@ -39,6 +39,14 @@ jobs:
           CHATID: ${{ secrets.CHATID }}
         run: python main.py
 
+      - name: execute py2 script # run main.py
+        env:
+          USERNAME: ${{ secrets.USER_NAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          BOTTOKEN: ${{ secrets.BOTTOKEN }}
+          CHATID: ${{ secrets.CHATID }}
+        run: python main2.py
+
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
