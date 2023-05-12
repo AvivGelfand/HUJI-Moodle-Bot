@@ -86,7 +86,11 @@ if __name__ == "__main__":
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()), options=options
+            # service=Service(
+            ChromeDriverManager().install()
+            # )
+            ,
+            options=options,
         )
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
@@ -96,7 +100,7 @@ if __name__ == "__main__":
         driver.find_element(By.ID, "login_username").send_keys(str(username))
         driver.find_element(By.ID, "login_password").send_keys(str(password))
         wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
-        time.sleep(4)
+        time.sleep(5)
         driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
         # logger.info("open_url_link_cs finished")
         return driver
@@ -142,7 +146,7 @@ if __name__ == "__main__":
         # Get the events
         events = soup.find_all("div", class_="event")
         print("events: ", events)
-        
+
         # logger.info(events)
 
         # Loop through all the events and extract the necessary information

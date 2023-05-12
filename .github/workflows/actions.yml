@@ -39,7 +39,15 @@ jobs:
           CHATID: ${{ secrets.CHATID }}
         run: python main.py
 
-      - name: execute py2 script # run main.py
+      # - name: execute py2 script # run main.py
+      #   env:
+      #     USERNAME: ${{ secrets.USER_NAME }}
+      #     PASSWORD: ${{ secrets.PASSWORD }}
+      #     BOTTOKEN: ${{ secrets.BOTTOKEN }}
+      #     CHATID: ${{ secrets.CHATID }}
+      #   run: python main2.py
+
+      - name: execute py3 script # run main.py
         env:
           USERNAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
