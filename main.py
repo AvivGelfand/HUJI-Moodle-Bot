@@ -16,25 +16,13 @@ import logging
 import logging.handlers
 import os
 
-
-# import datetime
 # from dotenv import load_dotenv
-# from dotenv import dotenv_values
-# import requests
+# load_dotenv()
 
-# logger = logging.getLogger(__name__)
-# logger.setLevel(logging.DEBUG)
-# logger_file_handler = logging.handlers.RotatingFileHandler(
-#     "status.log",
-#     maxBytes=1024 * 1024,
-#     backupCount=1,
-#     encoding="utf8",
-# )
-
-
-# import os
-# import logging
-# import logging.handlers
+username = os.environ.get("USER_NAME")
+password = os.environ.get("PASSWORD")
+bot_token = os.environ.get("BOTTOKEN")
+chat_id = os.environ.get("CHAT_ID")
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 log_file_path = os.path.join(script_dir, "status.log")
@@ -55,49 +43,47 @@ logger.addHandler(logger_file_handler)
 logger.info("scrape_tasks activated")
 
 
-# formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-# logger_file_handler.setFormatter(formatter)
-# logger.addHandler(logger_file_handler)
-
-# logger.info("scrape_tasks activated")
-# Write to the log file
-# logger_file_handler = logging.handlers.RotatingFileHandler(
-#     log_file_path,
-#     maxBytes=1024 * 1024,
-#     backupCount=1,
-#     encoding="utf8",
-# )
-
-
-# get username and password from the .env file
-# username = os.environ.get("USERNAME")
-# password = os.environ.get("PASSWORD")
-# bot_token = os.environ.get("BOTTOKEN")
-# chat_id = os.environ.get("CHATID")
-
-# from dotenv import load_dotenv
-# load_dotenv()
-
-username = os.environ.get("USER_NAME")
-password = os.environ.get("PASSWORD")
-bot_token = os.environ.get("BOTTOKEN")
-chat_id = os.environ.get("CHAT_ID")
-
-
 class MoodleBot:
     @classmethod
     def get_moodle_tasks(cls) -> list:
-        # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+        try:
+            url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+            driver = cls.open_url_link_cs(url)
+            print("Logged in to CS")
         # url = "https://moodle2.cs.huji.ac.il/nu22/"
-        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-
-        driver = cls.open_url_link(url)
-        new_scan_result = cls.scrape_tasks(driver)
-        time.sleep(2)
+        except:
+            url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
+            driver = cls.open_url_link_usual(url)
+            print("Logged in to usual")
+        old_tasks, new_tasks = cls.scrape_tasks(driver)
+        time.sleep(5)
         driver.quit()
-        return new_scan_result
+        return old_tasks, new_tasks
 
-    def open_url_link(url: str):
+    def open_url_link_cs(url: str):
+        logger.info("open_url_link_cs activated")
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+
+        # overcome limited resource problems
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Chrome(
+            service=Service(ChromeDriverManager().install()), options=options
+        )
+
+        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver.get(url)
+        wait = WebDriverWait(driver, 10)
+
+        driver.find_element(By.ID, "login_username").send_keys(str(username))
+        driver.find_element(By.ID, "login_password").send_keys(str(password))
+        wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
+        time.sleep(4)
+        driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
+        # logger.info("open_url_link_cs finished")
+        return driver
+
+    def open_url_link_usual(url: str):
         logger.info("open_url_link activated")
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
@@ -156,7 +142,7 @@ class MoodleBot:
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
-            print(data["title"])
+            # print(data["title"])
 
             data["date"] = event.find_all("div", class_="col-11")[0].text
 
@@ -190,7 +176,7 @@ class MoodleBot:
             new_tasks.append(data)
 
         previous_tasks = MoodleBot.get_previous_tasks()
-        logger.info("previous_tasks: ", previous_tasks)
+        # logger.info("previous_tasks: ", previous_tasks)
 
         # logger.info(new_tasks)
 
@@ -212,7 +198,7 @@ class MoodleBot:
         # # Save the information to a json file
         # with open(json_file_path, "w") as f:
         #     json.dump(result, f)
-        print("\n\new_tasks: ", new_tasks, "\n")
+        # print("\n\new_tasks: ", new_tasks, "\n")
         return previous_tasks, new_tasks
 
     def get_previous_tasks():
