@@ -16,22 +16,16 @@ formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(messag
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
-username = os.environ.get("USER_NAME")
-password = os.environ.get("PASSWORD")
-# print(username, password)
-bot_token = os.environ.get("BOTTOKEN")
-chat_id = os.environ.get("CHAT_ID")
-
-# try:
-#     SOME_SECRET = os.environ["SOME_SECRET"]
-# except KeyError:
-#     SOME_SECRET = "Token not available!"
-# logger.info("Token not available!")
-# raise
+try:
+    SOME_SECRET = os.environ["SOME_SECRET"]
+except KeyError:
+    SOME_SECRET = "Token not available!"
+    # logger.info("Token not available!")
+    # raise
 
 
 if __name__ == "__main__":
-    # logger.info(f"Token value: {SOME_SECRET}")
+    logger.info(f"Token value: {SOME_SECRET}")
 
     r = requests.get(
         "https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE"
@@ -58,15 +52,19 @@ from dotenv import dotenv_values
 
 # config = dotenv_values(".env")
 # from methods import get_date_format, get_task_from_date
-load_dotenv("C:/Users/avivg/Shtroodle moodle bot/.env")
 # get username from the .env file
-# username = os.getenv("USERNAME")
 
+username = os.environ.get("USER_NAME")
 password = os.environ.get("PASSWORD")
+bot_token = os.environ.get("BOTTOKEN")
+chat_id = os.environ.get("CHAT_ID")
+try:
+    SOME_SECRET = os.environ["PASSWORD"]
+except KeyError:
+    SOME_SECRET = "Token not available!"
+# password = os.environ.get("PASSWORD")
 # print('env_path  \n',os.getenv("PATH"),'\n\n','done')
 # print(username, password)
-# username = USERNAME = "aviv.gelfand@mail.huji.ac.il"
-# password = PASSWORD = "qmGn!2u9cftnLiN"
 # print(username, password)
 
 
@@ -103,6 +101,7 @@ class GetTask:
         # Loop through all the events and extract the necessary information
         result = []
         for event in events:
+            print(event)
             data = {}
 
             title_replacements = {
@@ -223,9 +222,9 @@ if __name__ == "__main__":
 
 import telebot
 
-# BOT_TOKEN = BOT_TOKEN = "5415991109:AAF6Vk7BVF5IDcRRzaC-C1Q6-lp0aeEMcDk"
+BOT_TOKEN = BOT_TOKEN = bot_token
 
-bot = telebot.TeleBot(bot_token)
+bot = telebot.TeleBot(BOT_TOKEN)
 
 # print a message to the user about the a latest update with the link to the submission page and the due date of the task
 if len(new_posts) != 0:
@@ -236,11 +235,9 @@ if len(new_posts) != 0:
             f"New moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
         )
 # else:
-# bot.send_message(536568724, "No new moodle updates")
 # message_text = f"New moodle update {check}"
 
 
-# bot.send_message(536568724, "New moodle update: " + message_text)
 # @bot.message_handler(commands=['start', 'hello'])
 # def send_welcome(message):
 # bot.reply_to(message, "Howdy, how are you doing?")
