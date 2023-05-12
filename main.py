@@ -279,7 +279,7 @@ if __name__ == "__main__":
     previous_tasks, new_tasks = get_moodle_tasks()
 
     new_posts = get_new_dictionaries(previous_tasks, new_tasks)
-    # print("new posts: ", new_posts)
+    print("new posts: ", new_posts)
     send_telegram_if_new(new_posts, bot_token)
 
     # MoodleBot.output_to_csv()
