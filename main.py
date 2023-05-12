@@ -45,11 +45,11 @@ logger.info("scrape_tasks activated")
 
 
 class MoodleBot:
-    @classmethod
+    # @classmethod
 
     # @classmethod
 
-    @classmethod
+    # @classmethod
 
     # create a function to output the new tasks to a csv file
     def output_to_csv():

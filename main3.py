@@ -232,7 +232,7 @@ if len(new_posts) != 0:
     for task in new_posts:
         # res[che]
         bot.send_message(
-            CHATID,
+            chat_id,
             f"New moodle update: \n\n Course: {task['course']}\n Assignment name: '{task['title']}'. \n Was just uploaded with a deadline set for {task['date']}. \nLink: {task['link']} \n Good luck!",
         )
 # else:
