@@ -82,7 +82,7 @@ class GetTask:
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         # overcome limited resource problems
-        options.add_argument("--disable-dev-shm-usage")
+        # options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
         driver.get(url)
         driver.find_element(By.ID, "login_username").send_keys(str(username))
