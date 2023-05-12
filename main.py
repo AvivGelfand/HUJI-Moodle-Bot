@@ -158,7 +158,7 @@ if __name__ == "__main__":
 
             data["title"] = event["data-event-title"]
             logger.info(f'title: {data["title"]}')
-
+            print(data["title"])
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
@@ -206,7 +206,7 @@ if __name__ == "__main__":
 
     def get_previous_tasks():
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        print(script_dir)
+        print("\nscript_dir: \n", script_dir)
         try:
             logger.info("Searching for previous tasks")
             with open(os.path.join(script_dir, "tasks.json"), "r") as f:
