@@ -21,6 +21,7 @@ import os
 
 username = os.environ.get("USER_NAME")
 password = os.environ.get("PASSWORD")
+# print(username, password)
 bot_token = os.environ.get("BOTTOKEN")
 chat_id = os.environ.get("CHAT_ID")
 
@@ -139,6 +140,8 @@ class MoodleBot:
             }
 
             data["title"] = event["data-event-title"]
+            logger.info(f'title: {data["title"]}')
+
             for old, new in title_replacements.items():
                 data["title"] = data["title"].replace(old, new)
 
