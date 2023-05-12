@@ -53,7 +53,7 @@ jobs:
           PASSWORD: ${{ secrets.PASSWORD }}
           BOTTOKEN: ${{ secrets.BOTTOKEN }}
           CHATID: ${{ secrets.CHATID }}
-        run: python main2.py
+        run: python main3.py
 
       - name: commit files
         run: |
