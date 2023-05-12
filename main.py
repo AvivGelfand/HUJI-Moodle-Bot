@@ -46,17 +46,34 @@ logger.info("scrape_tasks activated")
 
 class MoodleBot:
     @classmethod
-    def get_moodle_tasks(cls) -> list:
+
+    # @classmethod
+
+    @classmethod
+
+    # create a function to output the new tasks to a csv file
+    def output_to_csv():
+        with open("tasks.json", "r") as f:
+            task = json.load(f)
+        with open("tasks.csv", "w", encoding="utf-8") as f:  # Specify utf-8 encoding
+            writer = csv.DictWriter(f, fieldnames=task[0].keys())
+            writer.writeheader()
+            writer.writerows(task)
+
+
+if __name__ == "__main__":
+
+    def get_moodle_tasks():
         try:
             url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
-            driver = cls.open_url_link_cs(url)
+            driver = open_url_link_cs(url)
             print("Logged in to CS")
         # url = "https://moodle2.cs.huji.ac.il/nu22/"
         except:
             url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-            driver = cls.open_url_link_usual(url)
+            driver = open_url_link_usual(url)
             print("Logged in to usual")
-        old_tasks, new_tasks = cls.scrape_tasks(driver)
+        old_tasks, new_tasks = scrape_tasks(driver)
         time.sleep(5)
         driver.quit()
         return old_tasks, new_tasks
@@ -178,34 +195,18 @@ class MoodleBot:
             # append the data to the result list
             new_tasks.append(data)
 
-        previous_tasks = MoodleBot.get_previous_tasks()
-        # logger.info("previous_tasks: ", previous_tasks)
+        previous_tasks = get_previous_tasks()
 
-        # logger.info(new_tasks)
-
-        # Get the path of the current Python script
-
-        # new_tasks = []
-        # Save the JSON file in the same folder as the script
         json_file_path = os.path.join(script_dir, "tasks.json")
         with open(json_file_path, "w") as f:
             json.dump(new_tasks, f)
         logger.info("scrape_tasks finished, JSON file created")
 
-        # # Get the current directory
-        # current_directory = os.getcwd()
-
-        # # Append the filenames to the directory path
-        # json_file_path = os.path.join(current_directory, "tasks.json")
-
-        # # Save the information to a json file
-        # with open(json_file_path, "w") as f:
-        #     json.dump(result, f)
-        # print("\n\new_tasks: ", new_tasks, "\n")
         return previous_tasks, new_tasks
 
     def get_previous_tasks():
         script_dir = os.path.dirname(os.path.abspath(__file__))
+        print(script_dir)
         try:
             logger.info("Searching for previous tasks")
             with open(os.path.join(script_dir, "tasks.json"), "r") as f:
@@ -222,6 +223,7 @@ class MoodleBot:
         logger.info("compare_tasks activated")
         new_tasks = [task["title"] for task in new_tasks]
         old_tasks = [task["title"] for task in old_tasks]
+        print("OLD:", new_tasks, "\nNEW:", old_tasks)
 
         # get index of new tasks
         return [
@@ -240,15 +242,6 @@ class MoodleBot:
                 # add the new dictionary to the result list
                 new_dictionaries.append(new_dict)
         return new_dictionaries
-
-    # create a function to output the new tasks to a csv file
-    def output_to_csv():
-        with open("tasks.json", "r") as f:
-            task = json.load(f)
-        with open("tasks.csv", "w", encoding="utf-8") as f:  # Specify utf-8 encoding
-            writer = csv.DictWriter(f, fieldnames=task[0].keys())
-            writer.writeheader()
-            writer.writerows(task)
 
     # TELEGRAM BOT
     def send_telegram_if_new(new_posts, bot_token):  #
@@ -275,14 +268,13 @@ class MoodleBot:
             # def echo_all(message):
             # bot.reply_to(message, message.text)
 
+    previous_tasks, new_tasks = get_moodle_tasks()
 
-if __name__ == "__main__":
-    previous_tasks, new_tasks = MoodleBot.get_moodle_tasks()
-
-    new_posts = MoodleBot.get_new_dictionaries(previous_tasks, new_tasks)
+    new_posts = get_new_dictionaries(previous_tasks, new_tasks)
     # print("new posts: ", new_posts)
-    MoodleBot.send_telegram_if_new(new_posts, bot_token)
+    send_telegram_if_new(new_posts, bot_token)
 
     # MoodleBot.output_to_csv()
+
 
 # print("done\n\n\n\n")
