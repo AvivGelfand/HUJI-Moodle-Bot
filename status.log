@@ -1727,3 +1727,12 @@
 2023-05-12 11:50:25,186 - __main__ - INFO - scrape_tasks finished, JSON file created
 2023-05-12 11:50:27,247 - __main__ - INFO - get_new_dictionaries activated
 2023-05-12 11:50:27,249 - __main__ - INFO - Finished running, no updates found
+2023-05-12 11:59:55,282 - __main__ - INFO - scrape_tasks activated
+2023-05-12 11:59:55,283 - __main__ - INFO - open_url_link activated
+2023-05-12 12:00:13,421 - __main__ - INFO - open_url_link finished
+2023-05-12 12:00:13,421 - __main__ - INFO - scrape_tasks activated
+2023-05-12 12:00:13,488 - __main__ - INFO - Searching for previous tasks
+2023-05-12 12:00:13,489 - __main__ - INFO - found previous tasks
+2023-05-12 12:00:13,557 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-12 12:00:15,616 - __main__ - INFO - get_new_dictionaries activated
+2023-05-12 12:00:15,617 - __main__ - INFO - Finished running, no updates found
