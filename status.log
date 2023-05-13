@@ -2844,3 +2844,13 @@
 2023-05-13 11:51:46,757 - __main__ - INFO - Finished running, no updates found
 2023-05-13 11:51:46,932 - __main__ - INFO - Token value: Token not available!
 2023-05-13 11:51:47,470 - __main__ - INFO - Weather in Berlin: 21.56
+2023-05-13 12:09:10,007 - __main__ - INFO - scrape_tasks activated
+2023-05-13 12:09:10,007 - __main__ - INFO - open_url_link_cs activated
+2023-05-13 12:09:35,195 - __main__ - INFO - scrape_tasks activated
+2023-05-13 12:09:35,210 - __main__ - INFO - Searching for previous tasks
+2023-05-13 12:09:35,211 - __main__ - INFO - found previous tasks
+2023-05-13 12:09:35,211 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-13 12:09:40,275 - __main__ - INFO - get_new_dictionaries activated
+2023-05-13 12:09:40,276 - __main__ - INFO - Finished running, no updates found
+2023-05-13 12:09:40,477 - __main__ - INFO - Token value: Token not available!
+2023-05-13 12:09:41,253 - __main__ - INFO - Weather in Berlin: 22.18
