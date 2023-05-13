@@ -64,15 +64,15 @@ class MoodleBot:
 if __name__ == "__main__":
 
     def get_moodle_tasks():
-        try:
-            url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
-            driver = open_url_link_cs(url)
-            print("Logged in to CS")
-        # url = "https://moodle2.cs.huji.ac.il/nu22/"
-        except:
-            url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-            driver = open_url_link_usual(url)
-            print("Logged in to usual")
+        # try:
+        #     url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+        #     driver = open_url_link_cs(url)
+        #     print("Logged in to CS")
+        # # url = "https://moodle2.cs.huji.ac.il/nu22/"
+        # except:
+        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
+        driver = open_url_link_usual(url)
+        print("Logged in to usual")
         old_tasks, new_tasks = scrape_tasks(driver)
         time.sleep(5)
         driver.quit()
