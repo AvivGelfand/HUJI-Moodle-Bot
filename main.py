@@ -126,6 +126,9 @@ if __name__ == "__main__":
         time.sleep(2)
         driver.find_element(By.ID, "pills-email-tab").click()
         time.sleep(2)
+        # the following code not working on github actions, there is a recaptcha that blocks it
+        #
+
         driver.find_element(By.ID, "username").send_keys(str(username))
         driver.find_element(By.ID, "password").send_keys(str(password))
         wait.until(
