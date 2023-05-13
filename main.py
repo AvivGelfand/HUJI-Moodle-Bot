@@ -71,9 +71,9 @@ if __name__ == "__main__":
         # # url = "https://moodle2.cs.huji.ac.il/nu22/"
         # except:
         url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-        driver = open_url_link_usual(url)
+        # driver = open_url_link_usual(url)
         print("Logged in to usual")
-        old_tasks, new_tasks = scrape_tasks(driver)
+        old_tasks, new_tasks = scrape_tasks()
         time.sleep(5)
         driver.quit()
         return old_tasks, new_tasks
@@ -140,7 +140,32 @@ if __name__ == "__main__":
 
         return driver
 
-    def scrape_tasks(driver):
+    def scrape_tasks():
+        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
+        logger.info("open_url_link_cs activated")
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+
+        # overcome limited resource problems
+        options.add_argument("--disable-dev-shm-usage")
+        driver = webdriver.Chrome(
+            # service=Service(
+            ChromeDriverManager().install()
+            # )
+            ,
+            options=options,
+        )
+
+        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver.get(url)
+        wait = WebDriverWait(driver, 10)
+
+        driver.find_element(By.ID, "login_username").send_keys(str(username))
+        driver.find_element(By.ID, "login_password").send_keys(str(password))
+        wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
+        time.sleep(5)
+        driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
+
         logger.info("scrape_tasks activated")
 
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
