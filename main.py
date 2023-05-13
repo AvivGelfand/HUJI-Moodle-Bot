@@ -146,6 +146,7 @@ if __name__ == "__main__":
 
         # Get the events
         events = soup.find_all("div", class_="event")
+        logger.info(f"events: { events }")
         print("events: ", events)
 
         # logger.info(events)
