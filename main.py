@@ -141,7 +141,8 @@ if __name__ == "__main__":
         logger.info("scrape_tasks activated")
 
         soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
-        # print("soup: ", soup)
+        print("soup: ", soup)
+        logger.info(f"soup { soup }")
 
         # Get the events
         events = soup.find_all("div", class_="event")
@@ -151,6 +152,7 @@ if __name__ == "__main__":
 
         # Loop through all the events and extract the necessary information
         new_tasks = []
+
         for event in events:
             data = {}
 
