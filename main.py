@@ -141,7 +141,7 @@ if __name__ == "__main__":
         return driver
 
     def scrape_tasks():
-        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
+        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
         logger.info("open_url_link_cs activated")
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
