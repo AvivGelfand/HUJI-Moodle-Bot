@@ -139,33 +139,42 @@ if __name__ == "__main__":
 
     def scrape_tasks():
         url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
-        logger.info("open_url_link_cs activated")
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
+        # logger.info("open_url_link_cs activated")
+        # options = webdriver.ChromeOptions()
+        # options.add_argument("--headless")
 
-        # overcome limited resource problems
-        options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(
-            # service=Service(
-            ChromeDriverManager().install()
-            # )
-            ,
-            options=options,
+        # # overcome limited resource problems
+        # options.add_argument("--disable-dev-shm-usage")
+        # driver = webdriver.Chrome(
+        #     # service=Service(
+        #     ChromeDriverManager().install()
+        #     # )
+        #     ,
+        #     options=options,
+        # )
+        import requests
+        from bs4 import BeautifulSoup
+
+        # Make a GET request to the website you want to scrape
+        response = requests.get(
+            "https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
         )
+        # Parse the HTML content of the page with BeautifulSoup
+        soup = BeautifulSoup(response.content, "html.parser")
 
         # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-        driver.get(url)
-        wait = WebDriverWait(driver, 10)
+        # driver.get(url)
+        # wait = WebDriverWait(driver, 10)
 
-        driver.find_element(By.ID, "login_username").send_keys(str(username))
-        driver.find_element(By.ID, "login_password").send_keys(str(password))
-        wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
-        time.sleep(5)
-        driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
+        # driver.find_element(By.ID, "login_username").send_keys(str(username))
+        # driver.find_element(By.ID, "login_password").send_keys(str(password))
+        # wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
+        # time.sleep(5)
+        # driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
 
-        logger.info("scrape_tasks activated")
+        # logger.info("scrape_tasks activated")
 
-        soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
+        # soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
         print("soup: ", soup)
         # logger.info(f"soup { soup }")
 
