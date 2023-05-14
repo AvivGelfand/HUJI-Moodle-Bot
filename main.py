@@ -75,7 +75,7 @@ if __name__ == "__main__":
         print("Logged in to usual")
         old_tasks, new_tasks = scrape_tasks()
         time.sleep(5)
-        driver.quit()
+        # driver.quit()
         return old_tasks, new_tasks
 
     def open_url_link_cs(url: str):
