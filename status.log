@@ -3045,3 +3045,75 @@
 2023-05-14 08:29:10,174 - __main__ - INFO - Finished running, no updates found
 2023-05-14 08:29:10,371 - __main__ - INFO - Token value: Token not available!
 2023-05-14 08:29:11,267 - __main__ - INFO - Weather in Berlin: 17.36
+2023-05-14 09:32:40,935 - __main__ - INFO - scrape_tasks activated
+2023-05-14 09:32:43,228 - __main__ - INFO - Searching for previous tasks
+2023-05-14 09:32:43,229 - __main__ - INFO - found previous tasks
+2023-05-14 09:32:43,229 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 09:32:48,234 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 09:32:48,235 - __main__ - INFO - Finished running, no updates found
+2023-05-14 09:32:48,390 - __main__ - INFO - Token value: Token not available!
+2023-05-14 09:32:48,775 - __main__ - INFO - Weather in Berlin: 18.82
+2023-05-14 09:41:35,789 - __main__ - INFO - scrape_tasks activated
+2023-05-14 09:41:38,122 - __main__ - INFO - Searching for previous tasks
+2023-05-14 09:41:38,123 - __main__ - INFO - found previous tasks
+2023-05-14 09:41:38,123 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 09:41:43,128 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 09:41:43,129 - __main__ - INFO - Finished running, no updates found
+2023-05-14 09:41:43,316 - __main__ - INFO - Token value: Token not available!
+2023-05-14 09:41:44,131 - __main__ - INFO - Weather in Berlin: 18.82
+2023-05-14 09:50:34,234 - __main__ - INFO - scrape_tasks activated
+2023-05-14 09:50:37,726 - __main__ - INFO - Searching for previous tasks
+2023-05-14 09:50:37,727 - __main__ - INFO - found previous tasks
+2023-05-14 09:50:37,727 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 09:50:42,732 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 09:50:42,733 - __main__ - INFO - Finished running, no updates found
+2023-05-14 09:50:42,923 - __main__ - INFO - Token value: Token not available!
+2023-05-14 09:50:43,793 - __main__ - INFO - Weather in Berlin: 18.82
+2023-05-14 09:59:23,257 - __main__ - INFO - scrape_tasks activated
+2023-05-14 09:59:25,849 - __main__ - INFO - Searching for previous tasks
+2023-05-14 09:59:25,850 - __main__ - INFO - found previous tasks
+2023-05-14 09:59:25,850 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 09:59:30,855 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 09:59:30,857 - __main__ - INFO - Finished running, no updates found
+2023-05-14 09:59:31,069 - __main__ - INFO - Token value: Token not available!
+2023-05-14 09:59:31,675 - __main__ - INFO - Weather in Berlin: 21.06
+2023-05-14 10:17:20,249 - __main__ - INFO - scrape_tasks activated
+2023-05-14 10:17:22,479 - __main__ - INFO - Searching for previous tasks
+2023-05-14 10:17:22,479 - __main__ - INFO - found previous tasks
+2023-05-14 10:17:22,479 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 10:17:27,484 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 10:17:27,485 - __main__ - INFO - Finished running, no updates found
+2023-05-14 10:17:27,639 - __main__ - INFO - Token value: Token not available!
+2023-05-14 10:17:27,984 - __main__ - INFO - Weather in Berlin: 21.06
+2023-05-14 10:28:26,940 - __main__ - INFO - scrape_tasks activated
+2023-05-14 10:28:29,314 - __main__ - INFO - Searching for previous tasks
+2023-05-14 10:28:29,314 - __main__ - INFO - found previous tasks
+2023-05-14 10:28:29,314 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 10:28:34,319 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 10:28:34,320 - __main__ - INFO - Finished running, no updates found
+2023-05-14 10:28:34,475 - __main__ - INFO - Token value: Token not available!
+2023-05-14 10:28:34,936 - __main__ - INFO - Weather in Berlin: 21.06
+2023-05-14 10:37:24,216 - __main__ - INFO - scrape_tasks activated
+2023-05-14 10:37:27,184 - __main__ - INFO - Searching for previous tasks
+2023-05-14 10:37:27,185 - __main__ - INFO - found previous tasks
+2023-05-14 10:37:27,185 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 10:37:32,190 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 10:37:32,191 - __main__ - INFO - Finished running, no updates found
+2023-05-14 10:37:32,412 - __main__ - INFO - Token value: Token not available!
+2023-05-14 10:37:32,885 - __main__ - INFO - Weather in Berlin: 21.06
+2023-05-14 10:46:06,407 - __main__ - INFO - scrape_tasks activated
+2023-05-14 10:46:08,554 - __main__ - INFO - Searching for previous tasks
+2023-05-14 10:46:08,555 - __main__ - INFO - found previous tasks
+2023-05-14 10:46:08,555 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 10:46:13,558 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 10:46:13,559 - __main__ - INFO - Finished running, no updates found
+2023-05-14 10:46:13,714 - __main__ - INFO - Token value: Token not available!
+2023-05-14 10:46:14,350 - __main__ - INFO - Weather in Berlin: 21.06
+2023-05-14 10:55:09,752 - __main__ - INFO - scrape_tasks activated
+2023-05-14 10:55:12,226 - __main__ - INFO - Searching for previous tasks
+2023-05-14 10:55:12,227 - __main__ - INFO - found previous tasks
+2023-05-14 10:55:12,227 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-05-14 10:55:17,232 - __main__ - INFO - get_new_dictionaries activated
+2023-05-14 10:55:17,233 - __main__ - INFO - Finished running, no updates found
+2023-05-14 10:55:17,446 - __main__ - INFO - Token value: Token not available!
+2023-05-14 10:55:18,260 - __main__ - INFO - Weather in Berlin: 20.3
