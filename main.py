@@ -24,7 +24,7 @@ password = os.environ.get("PASSWORD")
 # print(username, password)
 bot_token = os.environ.get("BOTTOKEN")
 chat_id = os.environ.get("CHAT_ID")
-
+print(bot_token, chat_id)
 script_dir = os.path.dirname(os.path.abspath(__file__))
 log_file_path = os.path.join(script_dir, "status.log")
 
@@ -86,10 +86,7 @@ if __name__ == "__main__":
         # overcome limited resource problems
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(
-            # service=Service(
-            ChromeDriverManager().install()
-            # )
-            ,
+            service=Service(ChromeDriverManager().install()),
             options=options,
         )
 
