@@ -7,7 +7,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
-
 import selenium.webdriver.support.expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 import telebot
@@ -268,6 +267,7 @@ def auth_moodle(data: dict) -> requests.Session():
 
 logged_in = auth_moodle(data=app_data)
 soup = BeautifulSoup(logged_in.content, "html.parser")
+print(soup.prettify())
 
 logger.info("open_url_link_cs activated")
 # Get the events.
