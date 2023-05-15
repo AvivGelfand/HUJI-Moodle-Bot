@@ -1,5 +1,5 @@
 selenium>=4.8.1.0
-requests>=4.9.6
+requests>=2.30.0
 telebot>=0.0.5
 python-telegram-bot>=13.7
 python-dotenv>=20.3
