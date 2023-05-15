@@ -237,7 +237,7 @@ app_data = {
 def auth_moodle(data: dict) -> requests.Session():
     login, password, url_domain = data.values()
     s = requests.Session()
-    r_1 = s.get(url=url_domain + "/login/index.php")
+    r_1 = s.get(url=url_domain)
     pattern_auth = '<input type="hidden" name="logintoken" value="\w{32}">'
     token = re.findall(pattern_auth, r_1.text)
     token = re.findall("\w{32}", token[0])[0]
