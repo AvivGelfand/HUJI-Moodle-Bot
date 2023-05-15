@@ -16,6 +16,9 @@ import logging
 import logging.handlers
 import os
 
+import requests
+import re
+
 # from dotenv import load_dotenv
 # load_dotenv()
 
@@ -24,7 +27,7 @@ password = os.environ.get("PASSWORD")
 # print(username, password)
 bot_token = os.environ.get("BOTTOKEN")
 chat_id = os.environ.get("CHAT_ID")
-print(bot_token, chat_id)
+# print(bot_token, chat_id)
 script_dir = os.path.dirname(os.path.abspath(__file__))
 log_file_path = os.path.join(script_dir, "status.log")
 
@@ -70,37 +73,46 @@ if __name__ == "__main__":
         #     print("Logged in to CS")
         # # url = "https://moodle2.cs.huji.ac.il/nu22/"
         # except:
-        url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php"
-        # driver = open_url_link_usual(url)
-        print("Logged in to usual")
-        old_tasks, new_tasks = scrape_tasks()
+        url_dom = "https://moodle2.cs.huji.ac.il/nu22"
+        app_data = {"login": username, "password": password, "url": url_dom}
+        session = open_url_link_cs(app_data)
+        # print("Logged in to usual")
+        old_tasks, new_tasks = scrape_tasks(session)
         time.sleep(5)
         # driver.quit()
         return old_tasks, new_tasks
 
-    def open_url_link_cs(url: str):
-        logger.info("open_url_link_cs activated")
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
+    def open_url_link_cs(data: dict) -> requests.Session():
+        # url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
 
-        # overcome limited resource problems
-        options.add_argument("--disable-dev-shm-usage")
-        driver = webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=options,
+        login, password, url_domain = data.values()
+        s = requests.Session()
+        r_1 = s.get(url=url_domain + "/login/index.php")
+        pattern_auth = '<input type="hidden" name="logintoken" value="\w{32}">'
+        token = re.findall(pattern_auth, r_1.text)
+        token = re.findall("\w{32}", token[0])[0]
+        payload = {
+            "anchor": "",
+            "logintoken": token,
+            "username": login,
+            "password": password,
+            "rememberusername": 1,
+        }
+        r_2 = s.post(url=url_domain + "/login/index.php", data=payload)
+        for i in r_2.text.splitlines():
+            if "<title>" in i:
+                print(i[15:-8:])
+                break
+        counter = 0
+        for i in r_2.text.splitlines():
+            if "loginerrors" in i or (0 < counter <= 3):
+                counter += 1
+                print(i)
+        # print(r_2.text)
+        r_3 = s.get(
+            url="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
         )
-
-        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-        driver.get(url)
-        wait = WebDriverWait(driver, 10)
-
-        driver.find_element(By.ID, "login_username").send_keys(str(username))
-        driver.find_element(By.ID, "login_password").send_keys(str(password))
-        wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
-        time.sleep(5)
-        driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
-        # logger.info("open_url_link_cs finished")
-        return driver
+        return r_3
 
     def open_url_link_usual(url: str):
         logger.info("open_url_link activated")
@@ -137,117 +149,8 @@ if __name__ == "__main__":
 
         return driver
 
-    def scrape_tasks():
+    def scrape_tasks(response: requests.Session()):
         url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
-        # logger.info("open_url_link_cs activated")
-        # options = webdriver.ChromeOptions()
-        # options.add_argument("--headless")
-
-        # # overcome limited resource problems
-        # options.add_argument("--disable-dev-shm-usage")
-        # driver = webdriver.Chrome(
-        #     # service=Service(
-        #     ChromeDriverManager().install()
-        #     # )
-        #     ,
-        #     options=options,
-        # )
-        import requests
-        from bs4 import BeautifulSoup
-
-        # Make a GET request to the website you want to scrape
-        response = requests.get(
-            "https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
-        )
-        # Parse the HTML content of the page with BeautifulSoup
-        soup = BeautifulSoup(response.content, "html.parser")
-
-        # driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-        # driver.get(url)
-        # wait = WebDriverWait(driver, 10)
-
-        # driver.find_element(By.ID, "login_username").send_keys(str(username))
-        # driver.find_element(By.ID, "login_password").send_keys(str(password))
-        # wait.until(EC.element_to_be_clickable((By.ID, "loginbtn"))).click()
-        # time.sleep(5)
-        # driver.get("https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming")
-
-        # logger.info("scrape_tasks activated")
-
-        # soup = BeautifulSoup(driver.page_source, "html.parser")  # Get the events
-        print("soup: ", soup)
-        # logger.info(f"soup { soup }")
-
-        # Get the events.
-        events = soup.find_all("div", class_="event")
-        # logger.info(f"events: { events }")
-        print("events: ", events)
-
-        # logger.info(events)
-
-        # Loop through all the events and extract the necessary information
-        new_tasks = []
-
-        for event in events:
-            data = {}
-
-            title_replacements = {
-                "הגשה: ": "",
-                "Submission": "",
-                "הגשה ": "",
-                "is due": "",
-                ":": "",
-                "יש להגיש את ": "",
-                "של": "",
-            }
-
-            data["title"] = event["data-event-title"]
-            logger.info(f'title: {data["title"]}')
-            # print(data["title"])
-            for old, new in title_replacements.items():
-                data["title"] = data["title"].replace(old, new)
-
-            # print(data["title"])
-
-            data["date"] = event.find_all("div", class_="col-11")[0].text
-
-            if event.find("div", class_="description-content") != None:
-                data["description"] = event.find(
-                    "div", class_="description-content"
-                ).text
-                course_index = 3
-            else:
-                data["description"] = ""
-                course_index = 2
-            try:
-                # get the course name, if the course name is not Nan
-                data["course"] = event.find_all("div", class_="col-11")[
-                    course_index
-                ].text
-                # print(data["course"])
-            except:
-                data["course"] = ""
-            # print(data)
-            try:
-                # get link to the event submission page
-                data["link"] = event.find("div", class_="card-footer").find(
-                    "a", class_="card-link"
-                )["href"]
-            except:
-                data["link"] = ""
-                # print("no link found")
-
-            # append the data to the result list
-            new_tasks.append(data)
-
-        previous_tasks = get_previous_tasks()
-
-        json_file_path = os.path.join(script_dir, "tasks.json")
-        with open(json_file_path, "w") as f:
-            json.dump(new_tasks, f)
-        logger.info("scrape_tasks finished, JSON file created")
-
-        return previous_tasks, new_tasks
 
     def get_previous_tasks():
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -313,13 +216,124 @@ if __name__ == "__main__":
             # def echo_all(message):
             # bot.reply_to(message, message.text)
 
-    previous_tasks, new_tasks = get_moodle_tasks()
-
-    new_posts = get_new_dictionaries(previous_tasks, new_tasks)
-    print("new posts: ", new_posts)
-    send_telegram_if_new(new_posts, bot_token)
+    # previous_tasks, new_tasks = get_moodle_tasks()
 
     # MoodleBot.output_to_csv()
 
+import requests
+import re
+import os
 
-# print("done\n\n\n\n")
+url = "https://moodle2.cs.huji.ac.il/nu22/login/index.php?slevel=4"
+username = os.environ.get("USER_NAME")
+password = os.environ.get("PASSWORD")
+bot_token = os.environ.get("BOTTOKEN")
+chat_id = os.environ.get("CHAT_ID")
+app_data = {
+    "login": username,
+    "password": password,
+    "url": url,
+}
+
+
+def auth_moodle(data: dict) -> requests.Session():
+    login, password, url_domain = data.values()
+    s = requests.Session()
+    r_1 = s.get(url=url_domain + "/login/index.php")
+    pattern_auth = '<input type="hidden" name="logintoken" value="\w{32}">'
+    token = re.findall(pattern_auth, r_1.text)
+    token = re.findall("\w{32}", token[0])[0]
+    payload = {
+        "anchor": "",
+        "logintoken": token,
+        "username": login,
+        "password": password,
+        "rememberusername": 1,
+    }
+    r_2 = s.post(url=url_domain + "/login/index.php", data=payload)
+    for i in r_2.text.splitlines():
+        if "<title>" in i:
+            print(i[15:-8:])
+            break
+    counter = 0
+    for i in r_2.text.splitlines():
+        if "loginerrors" in i or (0 < counter <= 3):
+            counter += 1
+            print(i)
+    # print(r_2.text)
+    r_3 = s.get(
+        url="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
+    )
+    return r_3
+
+
+logged_in = auth_moodle(data=app_data)
+soup = BeautifulSoup(logged_in.content, "html.parser")
+
+logger.info("open_url_link_cs activated")
+# Get the events.
+events = soup.find_all("div", class_="event")
+# logger.info(f"events: { events }")
+print("events: ", events)
+
+# Loop through all the events and extract the necessary information
+new_tasks = []
+
+for event in events:
+    data = {}
+
+    title_replacements = {
+        "הגשה: ": "",
+        "Submission": "",
+        "הגשה ": "",
+        "is due": "",
+        ":": "",
+        "יש להגיש את ": "",
+        "של": "",
+    }
+
+    data["title"] = event["data-event-title"]
+    logger.info(f'title: {data["title"]}')
+    # print(data["title"])
+    for old, new in title_replacements.items():
+        data["title"] = data["title"].replace(old, new)
+
+    print(data["title"])
+
+    data["date"] = event.find_all("div", class_="col-11")[0].text
+
+    if event.find("div", class_="description-content") != None:
+        data["description"] = event.find("div", class_="description-content").text
+        course_index = 3
+    else:
+        data["description"] = ""
+        course_index = 2
+    try:
+        # get the course name, if the course name is not Nan
+        data["course"] = event.find_all("div", class_="col-11")[course_index].text
+        # print(data["course"])
+    except:
+        data["course"] = ""
+    # print(data)
+    try:
+        # get link to the event submission page
+        data["link"] = event.find("div", class_="card-footer").find(
+            "a", class_="card-link"
+        )["href"]
+    except:
+        data["link"] = ""
+        # print("no link found")
+
+    # append the data to the result list
+    new_tasks.append(data)
+
+previous_tasks = get_previous_tasks()
+
+json_file_path = os.path.join(script_dir, "tasks.json")
+with open(json_file_path, "w") as f:
+    json.dump(new_tasks, f)
+
+logger.info("scrape_tasks finished, JSON file created")
+new_posts = get_new_dictionaries(previous_tasks, new_tasks)
+print("new posts: ", new_posts)
+send_telegram_if_new(new_posts, bot_token)
