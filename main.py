@@ -262,6 +262,8 @@ def auth_moodle(data: dict) -> requests.Session():
     r_3 = s.get(
         url="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
     )
+    soup = BeautifulSoup(r_3.content, "html.parser")
+    print(soup.prettify())
     return r_3
 
 
