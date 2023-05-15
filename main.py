@@ -1,7 +1,6 @@
 # libraries
 import csv
 import json
-import os
 import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -274,7 +273,7 @@ logger.info("open_url_link_cs activated")
 # Get the events.
 events = soup.find_all("div", class_="event")
 # logger.info(f"events: { events }")
-print("events: ", events)
+# print("events: ", events)
 
 # Loop through all the events and extract the necessary information
 new_tasks = []
