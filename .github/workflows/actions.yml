@@ -32,17 +32,13 @@ jobs:
             && sudo chmod +x /usr/local/bin/chromedriver \
             && chromedriver --version
 
-      - name: Log in to website
-        run: |
-          curl -X POST https://moodle2.cs.huji.ac.il/nu22/login/index.php -d 'username=aviv.gelfand@mail.huji.ac.il&password=Csv@9Ui5vd8u8hX'
-
       - name: execute py script # run main.py
         env:
           USERNAME: ${{ secrets.USER_NAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           BOTTOKEN: ${{ secrets.BOTTOKEN }}
           CHATID: ${{ secrets.CHATID }}
-        run: python old_version.py
+        run: python main.py
 
       - name: commit files
         run: |
