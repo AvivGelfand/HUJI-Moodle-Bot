@@ -2,7 +2,7 @@
 import csv
 import json
 
-# import time
+import time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -100,13 +100,13 @@ if __name__ == "__main__":
         r_2 = s.post(url=url_domain + "/login/index.php", data=payload)
         for i in r_2.text.splitlines():
             if "<title>" in i:
-                print(i[15:-8:])
+                # print(i[15:-8:])
                 break
         counter = 0
         for i in r_2.text.splitlines():
             if "loginerrors" in i or (0 < counter <= 3):
                 counter += 1
-                print(i)
+                # print(i)
         # print(r_2.text)
         r_3 = s.get(
             url="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
     def get_previous_tasks():
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        print("\nscript_dir: \n", script_dir)
+        # print("\nscript_dir: \n", script_dir)
         try:
             logger.info("Searching for previous tasks")
             with open(os.path.join(script_dir, "tasks.json"), "r") as f:
@@ -170,7 +170,7 @@ if __name__ == "__main__":
         logger.info("compare_tasks activated")
         new_tasks = [task["title"] for task in new_tasks]
         old_tasks = [task["title"] for task in old_tasks]
-        print("OLD:", new_tasks, "\nNEW:", old_tasks)
+        # print("OLD:", new_tasks, "\nNEW:", old_tasks)
 
         # get index of new tasks
         return [
@@ -239,6 +239,10 @@ def auth_moodle(data: dict) -> requests.Session():
     login, password, url_domain = data.values()
     s = requests.Session()
     r_1 = s.get(url=url_domain)
+    time.sleep(4.2)
+
+    # how to make it work: sleep(1)
+
     pattern_auth = '<input type="hidden" name="logintoken" value="\w{32}">'
     token = re.findall(pattern_auth, r_1.text)
     token = re.findall("\w{32}", token[0])[0]
@@ -250,27 +254,31 @@ def auth_moodle(data: dict) -> requests.Session():
         "rememberusername": 1,
     }
     r_2 = s.post(url=url_domain + "/login/index.php", data=payload)
+    time.sleep(4.5)
     for i in r_2.text.splitlines():
         if "<title>" in i:
-            print(i[15:-8:])
+            # print(i[15:-8:])
             break
     counter = 0
     for i in r_2.text.splitlines():
         if "loginerrors" in i or (0 < counter <= 3):
             counter += 1
-            print(i)
+            # print(i)
     # print(r_2.text)
+
     r_3 = s.get(
         url="https://moodle2.cs.huji.ac.il/nu22/calendar/view.php?view=upcoming"
     )
+    time.sleep(4.5)
+
     soup = BeautifulSoup(r_3.content, "html.parser")
-    print(soup.prettify())
+    # print(soup.prettify())
     return r_3
 
 
 logged_in = auth_moodle(data=app_data)
 soup = BeautifulSoup(logged_in.content, "html.parser")
-print(soup.prettify())
+# print(soup.prettify())
 
 logger.info("open_url_link_cs activated")
 # Get the events.
@@ -295,12 +303,29 @@ for event in events:
     }
 
     data["title"] = event["data-event-title"]
+
+    if data["title"] == "מטלת בונוס דורש התייחסות":
+        continue  # skip this event
+    # contains "סימולציה" or "simulation" in the title
+    if data["title"].find("סימולציה") != -1 or data["title"].find("3 חלקי א'") != -1:
+        continue
     logger.info(f'title: {data["title"]}')
     # print(data["title"])
     for old, new in title_replacements.items():
         data["title"] = data["title"].replace(old, new)
-
-    print(data["title"])
+    # print reveresed title
+    # reverse every hebrew word in the title
+    hebrew_letters = "אבגדהוזחטיכלמנסעפצקרשת"
+    str_title = data["title"]
+    # for word in data["title"].split(" "):
+    #     if word[0] in hebrew_letters:
+    #         str_title = data["title"].replace(word, word[::-1])
+    #         # print(str_title)
+    #     # else:
+    # print(str_title)
+    if data["title"][0] in hebrew_letters:
+        str_title = data["title"][::-1]
+    print(str_title)
 
     data["date"] = event.find_all("div", class_="col-11")[0].text
 
@@ -337,5 +362,5 @@ with open(json_file_path, "w") as f:
 
 logger.info("scrape_tasks finished, JSON file created")
 new_posts = get_new_dictionaries(previous_tasks, new_tasks)
-print("new posts: ", new_posts)
+print("new posts: ", len(new_posts))
 send_telegram_if_new(new_posts, bot_token)
