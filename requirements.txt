@@ -6,5 +6,4 @@ python-dotenv>=1.0.0
 BeautifulSoup4>=4.9.3
 lxml>=4.6.3
 pandas>=2.0.1
-re
 # Install the requirements
