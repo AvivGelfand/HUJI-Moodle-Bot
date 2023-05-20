@@ -197,9 +197,26 @@ if __name__ == "__main__":
         # send message to the user about the a latest update with the link to the submission page and the due date of the task
         if len(new_posts) != 0:
             for task in new_posts:
+                message_text = f"Master Bruce,\n Upcoming event:"
+                if task["course"] != "":
+                    message_text += (
+                        f"\n \n{task['course']}.\n \n Name: \n'{task['title']}'"
+                    )
+                else:
+                    message_text += f"\n \n Name: \n'{task['title']}'"
+                if task["description"] != "":
+                    message_text += f"\n \n Description: \ת{task['description']}; End of description"
+                if task["link"] != "":
+                    if task["date"] != "":
+                        message_text += f"\n \n Deadline is {task['date']}."
+                    message_text += f"\n \nLink: {task['link']}"
+                else:
+                    if task["date"] != "":
+                        message_text += f"\n \n Deadline is {task['date']}."
+                message_text += "\n Cheers👋"
                 bot.send_message(
                     chat_id,
-                    f"Master Bruce,\n\nFYI, new event: \n\n{task['course']}.\n \nAssignment name: \n'{task['title']}' \n \nDeadline is {task['date']}. \n\nLink: {task['link']} \n \n Cheers👋",
+                    message_text,
                 )
             logger.info("Finished running, new updates found and sent to user")
             print("\n\nNew moodle updates sent to user\n\n")
