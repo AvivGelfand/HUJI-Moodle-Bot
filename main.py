@@ -197,23 +197,25 @@ if __name__ == "__main__":
         # send message to the user about the a latest update with the link to the submission page and the due date of the task
         if len(new_posts) != 0:
             for task in new_posts:
-                message_text = f"Master Bruce,\n Upcoming event:"
+                message_text = f" Master Bruce, new update:"
                 if task["course"] != "":
-                    message_text += (
-                        f"\n \n{task['course']}.\n \n Name: \n'{task['title']}'"
-                    )
+                    message_text += f"\n\n{task['course']}."
+                # else:
+                #     message_text += f"\n\nGeneral event."
+                if len(task["title"]) > 25:
+                    message_text += f"\n\nName: \n'{task['title']}'"
                 else:
-                    message_text += f"\n \n Name: \n'{task['title']}'"
-                if task["description"] != "":
-                    message_text += f"\n \n Description: \ת{task['description']}; End of description"
+                    message_text += f"\n\nName: '{task['title']}'"
+                # if task["description"] != "":
+                #     message_text += f"\n \n Description: \n{task['description']}; End of description"
                 if task["link"] != "":
                     if task["date"] != "":
-                        message_text += f"\n \n Deadline is {task['date']}."
+                        message_text += f"\n \n Scheduled for {task['date']}."
                     message_text += f"\n \nLink: {task['link']}"
                 else:
                     if task["date"] != "":
                         message_text += f"\n \n Deadline is {task['date']}."
-                message_text += "\n Cheers👋"
+                message_text += "\n\n Best👋"
                 bot.send_message(
                     chat_id,
                     message_text,
@@ -223,7 +225,6 @@ if __name__ == "__main__":
         else:
             logger.info("Finished running, no updates found")
             print("\n\n No new moodle updates")
-            # bot.send_message(536568724, "No new moodle updates")
 
             # @bot.message_handler(commands=['start', 'hello'])
             # bot.reply_to(message, "Howdy, how are you doing?")
