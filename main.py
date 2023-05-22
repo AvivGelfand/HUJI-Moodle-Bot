@@ -87,6 +87,10 @@ if __name__ == "__main__":
 
         login, password, url_domain = data.values()
         s = requests.Session()
+        s.headers[
+            "User-Agent"
+        ] = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:59.0) Gecko/20100101 Firefox/59.0"
+
         r_1 = s.get(url=url_domain + "/login/index.php")
         pattern_auth = '<input type="hidden" name="logintoken" value="\w{32}">'
         token = re.findall(pattern_auth, r_1.text)
@@ -98,6 +102,7 @@ if __name__ == "__main__":
             "password": password,
             "rememberusername": 1,
         }
+
         r_2 = s.post(url=url_domain + "/login/index.php", data=payload)
         for i in r_2.text.splitlines():
             if "<title>" in i:
