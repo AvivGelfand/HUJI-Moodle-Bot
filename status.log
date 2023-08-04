@@ -4013,3 +4013,10 @@
 2023-08-04 01:31:48,704 - __main__ - INFO - scrape_tasks finished, JSON file created
 2023-08-04 01:31:48,704 - __main__ - INFO - get_new_dictionaries activated
 2023-08-04 01:31:48,705 - __main__ - INFO - Finished running, no updates found
+2023-08-04 01:57:36,561 - __main__ - INFO - scrape_tasks activated
+2023-08-04 01:57:53,016 - __main__ - INFO - open_url_link_cs activated
+2023-08-04 01:57:53,017 - __main__ - INFO - Searching for previous tasks
+2023-08-04 01:57:53,017 - __main__ - INFO - found previous tasks
+2023-08-04 01:57:53,017 - __main__ - INFO - scrape_tasks finished, JSON file created
+2023-08-04 01:57:53,018 - __main__ - INFO - get_new_dictionaries activated
+2023-08-04 01:57:53,018 - __main__ - INFO - Finished running, no updates found
