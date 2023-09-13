@@ -1,6 +1,8 @@
-# Alfred - a Personal Moodle Bot
+<img align="right" alt="Alfred" src="https://assets.mycast.io/characters/alfred-pennyworth-627238-normal.jpg?1587997434"  height="180" />
 
-**Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.
+# Alfred - a Personal Moodle Bot 
+
+**Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.  
 
 ## Project Files
 
@@ -50,19 +52,19 @@ To run the script, simply run **`python main.py`**.
 
 ## Files
 
-- **`.github/workflows`** A folder containing the GitHub Actions configuration file for this project.
-- **`main.py`**: The Python script that logs into Moodle and scrapes the tasks.
+- **`.github/workflows`** A folder containing this project's GitHub Actions configuration file.
+- **`main.py`**: The Python script logs into Moodle and scrapes the tasks.
 - **`requirements.txt`**: A file containing the required Python libraries.
 - **`status.log`**: A log file containing the script's status.
 - **`tasks.json`**: A JSON file containing the scraped tasks.
-- **`README.md`**: This file, containing information about the project.
+- **`README.md`**: This file contains information about the project.
 
 ## Running the bot automatically in time intervals:
 
-- Inspect and configure cron job in GitHub Action `.github/workflows/actions.yml`
-- It can install and use third party packages from `requirements.txt`
+- Inspect and configure the cron job in GitHub Action `.github/workflows/actions.yml`
+- It can install and use third-party packages from `requirements.txt`
 - Secret environment variables can be used. Set secrets in Settings/Secrets/Actions -> 'New repository secret'. Use the same secret name inside `actions.yml` and `main.py`
 
 ## Credits
 
-This project's structure is a [for of the python-github-action-template repository](https://github.com/patrickloeber/python-github-action-template). Special thanks to [patrickloeber](https://github.com/patrickloeber) for his hard work and for making his code available under an open source license. I learned a lot from his [youtube channel]() while working on this project.
+This project's structure is a [for of the python-github-action-template repository](https://github.com/patrickloeber/python-github-action-template). Special thanks to [patrickloeber](https://github.com/patrickloeber) for his hard work and for making his code available under an open-source license. While working on this project, I learned a lot from his [youtube channel](https://www.youtube.com/@patloeber).
