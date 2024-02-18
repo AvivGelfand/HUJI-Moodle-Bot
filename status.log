@@ -8150,3 +8150,10 @@
 2024-02-17 02:01:58,700 - __main__ - INFO - scrape_tasks finished, JSON file created
 2024-02-17 02:01:58,700 - __main__ - INFO - get_new_dictionaries activated
 2024-02-17 02:01:58,701 - __main__ - INFO - Finished running, no updates found
+2024-02-18 01:27:37,532 - __main__ - INFO - scrape_tasks activated
+2024-02-18 01:27:52,878 - __main__ - INFO - open_url_link_cs activated
+2024-02-18 01:27:52,878 - __main__ - INFO - Searching for previous tasks
+2024-02-18 01:27:52,878 - __main__ - INFO - found previous tasks
+2024-02-18 01:27:52,879 - __main__ - INFO - scrape_tasks finished, JSON file created
+2024-02-18 01:27:52,879 - __main__ - INFO - get_new_dictionaries activated
+2024-02-18 01:27:52,879 - __main__ - INFO - Finished running, no updates found
