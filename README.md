@@ -1,8 +1,12 @@
-<img align="right" alt="Alfred" src="https://assets.mycast.io/characters/alfred-pennyworth-627238-normal.jpg?1587997434"  height="180" />
-
 # Alfred - a Personal Moodle Bot 
+**Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.   <p></p> 
+<img align="right" alt="Alfred" src="https://assets.mycast.io/characters/alfred-pennyworth-627238-normal.jpg?1587997434"  height="180" /> <p></p> 
 
-**Alfred is a Python-based bot Scraping & Messaging bot** that scrapes [Hebrew University of Jerusalem's Moodle](https://moodle2.cs.huji.ac.il/nu22/) and sends a message through Telegram about any new update or upload in upcoming deadlines for assignment.  
+
+<img align="center" alt="Telegram Screen" src="https://github.com/AvivGelfand/HUJI-Moodle-Bot/assets/63909805/dbbd2f50-9268-4998-abf6-082773ab2b41"  height="600" />
+
+Also prooved to be very usefull when running script for a long time and want to get alerts and updates remotly.  <p></p> 
+<img align="center" alt="Telegram Screen" src="https://github.com/AvivGelfand/HUJI-Moodle-Bot/assets/63909805/a2c4fe67-d4e4-4255-a751-391dd60b9c70"  height="600" />
 
 ## Project Files
 
